@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mail Packet Envelope - Improved</title>
-
+    <title>Bluish Texture Mail Envelope</title>
     <style>
         :root {
             --center-width: 100%;
             --center-height: 100%;
             --duration: 0.8s;
-            /* Staggering time */
             --delay-step: 0.15s;
 
-            --paper: #fffdf7;
-            --flap: #d4cbb3;
-            /* Softer flap color */
-            --border: #d0c7a8;
-            --border-radius: 15px;
-            /* Added border-radius */
-            --message-color: #333;
+            /* Bluish Texture Color Scheme */
+            --paper: linear-gradient(135deg, #e6f0ff 0%, #c9e0ff 100%);
+            --flap-gradient: linear-gradient(135deg, #4a6fa5 0%, #6b8cbc 50%, #4a6fa5 100%);
+            --flap-accent: linear-gradient(135deg, #2c5aa0 0%, #4a7bc8 50%, #2c5aa0 100%);
+            --border: #3a5a8c;
+            --border-radius: 12px;
+            --message-color: #2c3e50;
+            --shadow-color: rgba(44, 62, 80, 0.2);
         }
 
         body {
             margin: 0;
-            background: #d4d4d4;
+            background: linear-gradient(135deg, #a8c8ff 0%, #7aa6e3 100%);
             width: 100vw;
             height: 100vh;
             perspective: 1500px;
@@ -42,11 +40,27 @@
             height: var(--center-height);
             background: var(--paper);
             border: 2px solid var(--border);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 
+                0 15px 35px var(--shadow-color),
+                inset 0 1px 0 rgba(255,255,255,0.8);
             transform-style: preserve-3d;
             cursor: pointer;
             border-radius: var(--border-radius);
             transition: transform var(--duration) ease-out;
+            overflow: hidden;
+        }
+
+        /* Paper texture effect */
+        .envelope::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(74, 111, 165, 0.05) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, rgba(74, 111, 165, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 5;
+            pointer-events: none;
         }
 
         /* Rounded corner simulation for where flaps meet the body */
@@ -65,30 +79,54 @@
             inset: 0;
             padding: 40px;
             box-sizing: border-box;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-align: center;
             color: var(--message-color);
             transform: translateZ(2px);
             opacity: 0;
             transition: opacity 0.5s ease-in-out var(--duration), transform var(--duration);
             z-index: 20;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            line-height: 1.6;
+        }
+
+        .content h2 {
+            margin-top: 0;
+            color: #3a5a8c;
+            font-weight: 600;
+            font-size: 1.8rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            margin: 10px 0;
         }
 
         /* FLAPS */
         .flap {
             position: absolute;
-            background: radial-gradient(
-                    #2f2f2f 70%,
-                    #d4af37 100%
-                    /* Dark grey center */
-                    /* Golden edges */
-                );
-
-            /* Removed individual flap borders */
+            background: var(--flap-gradient);
             border-color: var(--border);
             transform-style: preserve-3d;
             transition: transform var(--duration) ease-in-out;
             z-index: 50;
+            box-shadow: 
+                inset 0 0 10px rgba(0,0,0,0.2),
+                0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Blue accent on flap edges */
+        .flap::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background: var(--flap-accent);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
 
         /* Apply border-radius only on non-clipped edges for a cleaner look */
@@ -103,6 +141,11 @@
             border-top-right-radius: var(--border-radius);
         }
 
+        .top::after {
+            bottom: 0;
+            left: 0;
+        }
+
         .bottom {
             bottom: 0;
             left: 0;
@@ -113,7 +156,11 @@
             border-bottom-left-radius: var(--border-radius);
             border-bottom-right-radius: var(--border-radius);
             z-index: 60;
-            /* Bring bottom flap over side flaps */
+        }
+
+        .bottom::after {
+            top: 0;
+            left: 0;
         }
 
         .left {
@@ -125,14 +172,27 @@
             transform-origin: left;
         }
 
+        .left::after {
+            right: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+        }
+
         .right {
             right: 0;
             top: 0;
             width: 50%;
             height: 100%;
             clip-path: polygon(100% 0%, 0% 50%, 100% 100%);
-            border-radius: 2px solid black(polygon(100% 0%, 0% 50%, 100% 100%));
             transform-origin: right;
+        }
+
+        .right::after {
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
         }
 
         /* OPEN ANIMATION - Staggered */
@@ -170,7 +230,61 @@
             transform: translateZ(120px);
             opacity: 1;
             transition-delay: calc(4 * var(--delay-step));
-            /* Wait for flaps to open */
+        }
+
+        /* Add a subtle envelope scale effect on hover */
+        .envelope:hover {
+            transform: scale(1.02);
+        }
+
+        /* Centered Stamp */
+        .stamp {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(5deg);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(145deg, #d43a3a 0%, #ff6b6b 100%);
+            border-radius: 50%;
+            z-index: 100; /* High z-index to appear on top of closed envelope */
+            box-shadow: 
+                0 3px 8px rgba(0,0,0,0.3),
+                inset 0 0 10px rgba(255,255,255,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 2px dashed rgba(255,255,255,0.5);
+            transition: opacity var(--duration) ease-in-out;
+        }
+
+        .stamp::before {
+            content: '';
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            border: 2px solid rgba(255,255,255,0.7);
+            border-radius: 50%;
+        }
+
+        .stamp::after {
+            color: white;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            font-weight: 700;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        /* Hide stamp when envelope is open */
+        .open .stamp {
+            opacity: 0;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -178,21 +292,19 @@
 <body>
 
     <div class="envelope" onclick="togglePacket()">
-
+        <div class="stamp"></div>
+        
         <div class="content">
-            <h2>🎉 You've Got Mail!</h2>
-            <p>Welcome to the world of CSS 3D transforms and staggered transitions. The envelope now opens one flap at a
-                time for a more dramatic effect.</p>
-            <p>Tap again to close the mail packet.</p>
+            <h2>📬 You've Got Mail!</h2>
+            <p>Welcome to the bluish texture mail envelope with a centered stamp design. Experience the elegance of this beautiful blue theme.</p>
+            <p>Click again to close this stylish mail packet.</p>
         </div>
 
         <div class="flap top"></div>
         <div class="flap bottom"></div>
         <div class="flap left"></div>
         <div class="flap right"></div>
-
     </div>
-
 
     <script>
         function togglePacket() {
@@ -202,5 +314,4 @@
     </script>
 
 </body>
-
 </html>
