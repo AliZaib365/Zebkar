@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mail Packet Envelope</title>
+
+<style>
+   
+</style>
+</head>
+
+<body>
+
+<div class="envelope" onclick="togglePacket()">
+
+    <div class="content">
+        <h2>Your Hidden Message</h2>
+        <p>Tap again to close the mail packet.</p>
+    </div>
+
+    <div class="flap top"></div>
+    <div class="flap bottom"></div>
+    <div class="flap left"></div>
+    <div class="flap right"></div>
+
+</div>
+
+
+<script>
+function togglePacket(){
+    document.querySelector(".envelope")
+            .classList.toggle("open");
+}
+</script>
+
+</body>
+</html>

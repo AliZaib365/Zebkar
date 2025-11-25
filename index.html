@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail Packet Envelope - Improved</title>
+
+    <style>
+        :root {
+            --center-width: 100%;
+            --center-height: 100%;
+            --duration: 0.8s;
+            /* Staggering time */
+            --delay-step: 0.15s;
+
+            --paper: #fffdf7;
+            --flap: #d4cbb3;
+            /* Softer flap color */
+            --border: #d0c7a8;
+            --border-radius: 15px;
+            /* Added border-radius */
+            --message-color: #333;
+        }
+
+        body {
+            margin: 0;
+            background: #d4d4d4;
+            width: 100vw;
+            height: 100vh;
+            perspective: 1500px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .envelope {
+            position: relative;
+            width: var(--center-width);
+            height: var(--center-height);
+            background: var(--paper);
+            border: 2px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform-style: preserve-3d;
+            cursor: pointer;
+            border-radius: var(--border-radius);
+            transition: transform var(--duration) ease-out;
+        }
+
+        /* Rounded corner simulation for where flaps meet the body */
+        .envelope::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--paper);
+            border-radius: var(--border-radius);
+            z-index: 10;
+        }
+
+        /* MESSAGE */
+        .content {
+            position: absolute;
+            inset: 0;
+            padding: 40px;
+            box-sizing: border-box;
+            font-size: 1.2rem;
+            text-align: center;
+            color: var(--message-color);
+            transform: translateZ(2px);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out var(--duration), transform var(--duration);
+            z-index: 20;
+        }
+
+        /* FLAPS */
+        .flap {
+            position: absolute;
+            background: radial-gradient(
+                    #2f2f2f 70%,
+                    #d4af37 100%
+                    /* Dark grey center */
+                    /* Golden edges */
+                );
+
+            /* Removed individual flap borders */
+            border-color: var(--border);
+            transform-style: preserve-3d;
+            transition: transform var(--duration) ease-in-out;
+            z-index: 50;
+        }
+
+        /* Apply border-radius only on non-clipped edges for a cleaner look */
+        .top {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+            transform-origin: top;
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
+        }
+
+        .bottom {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+            transform-origin: bottom;
+            border-bottom-left-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+            z-index: 60;
+            /* Bring bottom flap over side flaps */
+        }
+
+        .left {
+            left: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+            transform-origin: left;
+        }
+
+        .right {
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            clip-path: polygon(100% 0%, 0% 50%, 100% 100%);
+            border-radius: 2px solid black(polygon(100% 0%, 0% 50%, 100% 100%));
+            transform-origin: right;
+        }
+
+        /* OPEN ANIMATION - Staggered */
+        /* Z-index change for visual depth as flaps open */
+        .open .flap {
+            z-index: 40;
+        }
+
+        /* 1. Open Right Flap */
+        .open .right {
+            transform: rotateY(180deg);
+            transition-delay: 0s;
+        }
+
+        /* 2. Open Left Flap */
+        .open .left {
+            transform: rotateY(-180deg);
+            transition-delay: var(--delay-step);
+        }
+
+        /* 3. Open Bottom Flap */
+        .open .bottom {
+            transform: rotateX(-180deg);
+            transition-delay: calc(2 * var(--delay-step));
+        }
+
+        /* 4. Open Top Flap */
+        .open .top {
+            transform: rotateX(180deg);
+            transition-delay: calc(3 * var(--delay-step));
+        }
+
+        /* Message comes forward and fades in */
+        .open .content {
+            transform: translateZ(120px);
+            opacity: 1;
+            transition-delay: calc(4 * var(--delay-step));
+            /* Wait for flaps to open */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="envelope" onclick="togglePacket()">
+
+        <div class="content">
+            <h2>🎉 You've Got Mail!</h2>
+            <p>Welcome to the world of CSS 3D transforms and staggered transitions. The envelope now opens one flap at a
+                time for a more dramatic effect.</p>
+            <p>Tap again to close the mail packet.</p>
+        </div>
+
+        <div class="flap top"></div>
+        <div class="flap bottom"></div>
+        <div class="flap left"></div>
+        <div class="flap right"></div>
+
+    </div>
+
+
+    <script>
+        function togglePacket() {
+            document.querySelector(".envelope")
+                .classList.toggle("open");
+        }
+    </script>
+
+</body>
+
+</html>
