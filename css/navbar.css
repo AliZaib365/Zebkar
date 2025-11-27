@@ -1,0 +1,234 @@
+    :root{
+  --bg: #151515;
+  --accent: #a58b5c;
+  --accent-light: #e0c98f;
+  --accent-dark: #8a754d;
+  --height: 120px;
+  --font-family: "Georgia", "Times New Roman", serif;
+  --transition: all 0.3s ease;
+}
+
+/* Reset */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font-family:var(--font-family);background:#fff;color:#fff}
+
+/* Header */
+.site-header{
+  background:#191919;
+  border-bottom: 2px solid rgba(255,255,255,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.header-inner{
+  max-width: 1400px;
+  margin: 0 auto;
+  height: var(--height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 36px;
+  gap: 16px;
+}
+
+/* Left and right take equal space so center stays centered */
+.left, .right{
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+}
+
+/* left nav items are left-aligned */
+.left{ justify-content: flex-start; }
+
+/* right icons are right-aligned */
+.right{ justify-content: flex-end; }
+
+/* nav styling */
+.main-nav ul{ 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 56px;
+  align-items: center;
+}
+
+.main-nav a{ 
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 0;
+  transition: var(--transition);
+  position: relative;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.main-nav a:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent-light);
+  transition: var(--transition);
+}
+
+.main-nav a:hover{ 
+  color: var(--accent-light);
+}
+
+.main-nav a:hover:after {
+  width: 100%;
+}
+
+/* center container doesn't grow so it's visually centered between two equal flex sides */
+.center{ 
+  flex: 0 0 auto; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  position: relative;
+}
+
+/* logo */
+.logo{
+  height: 150px;
+  object-fit: contain;
+  max-height: 150px;
+  display: block;
+  transition: var(--transition);
+  filter: brightness(1.05);
+}
+
+.logo:hover {
+  transform: scale(1.03);
+  filter: brightness(1.2);
+}
+
+/* icons on right */
+.header-icons{ 
+  display: flex; 
+  gap: 36px; 
+  align-items: center;
+}
+
+.header-icons i{ 
+  color: var(--accent); 
+  font-size: 30px; 
+  cursor: pointer; 
+  transition: var(--transition);
+  position: relative;
+}
+
+.header-icons i:hover{ 
+  color: var(--accent-light); 
+  transform: translateY(-2px);
+}
+
+/* Add badge for cart */
+.cart-icon {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--accent-light);
+  color: var(--bg);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* responsive tweaks */
+@media (max-width: 1100px){
+  .main-nav ul{ gap: 36px }
+  .logo{ height: 84px }
+  .header-icons i{ font-size: 28px }
+}
+
+@media (max-width: 800px){
+  .main-nav ul{ gap: 20px; font-size: 16px }
+  .logo{ height: 72px }
+  .header-inner{ height: 100px; padding: 0 24px; }
+}
+
+@media (max-width: 650px){
+  .main-nav ul{ gap: 16px; font-size: 15px }
+  .logo{ height: 65px }
+  .header-icons{ gap: 20px; }
+  .header-icons i{ font-size: 24px; }
+}
+
+@media (max-width: 560px){
+  .left{ display: none; } /* hide full nav on very small screens; replace with hamburger if needed */
+  .logo{ height: 56px }
+  .header-inner{ height: 72px; padding: 0 16px; }
+  .header-icons i{ font-size: 22px; }
+  .header-icons{ gap: 16px; }
+}
+
+/* Add hamburger menu for mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--accent);
+  border-radius: 3px;
+  transition: var(--transition);
+}
+
+@media (max-width: 560px) {
+  .hamburger {
+    display: flex;
+  }
+  
+  .left.active {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg);
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 99;
+  }
+  
+  .main-nav ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+  }
+  
+  .main-nav a {
+    font-size: 18px;
+    padding: 10px 0;
+    display: block;
+    text-align: center;
+  }
+}
