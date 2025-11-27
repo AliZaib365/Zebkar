@@ -38,7 +38,7 @@
         }
 
         body {
-            font-family: var(--font-family);
+            font-family: 'Amiri', serif;
             background: #fff;
             color: #fff
         }
@@ -68,16 +68,18 @@
         }
 
         /* Header inner layout: space-between (left, center, right) */
-        .header-inner {
-            max-width: 1400px;
+        .header-inner  {
+            /* max-width: 1400px; */
             margin: 0 auto;
             height: var(--height);
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 0 36px;
-            gap: 16px;
+            padding: 0 127px;
+            gap: 7px;
+            justify-content: flex-end;
+            flex-direction: row;
         }
+
 
         /* left & right columns stretch so center logo stays visually centered */
         .left,
@@ -101,7 +103,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            gap: 56px;
+            gap: 2rem;
             align-items: center;
         }
 
@@ -137,7 +139,7 @@
 
         /* logo in center */
         .center {
-            flex: 0 0 auto;
+            width: 5%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -145,7 +147,7 @@
         }
 
         .logo {
-            height: 150px;
+            width: 248%;
             /* visually similar to the reference */
             object-fit: contain;
             display: block;
@@ -263,7 +265,7 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            font-size: clamp(36px, 10vw, 120px);
+            font-size: 10rem;
             line-height: 0.9;
             margin: 0 0 20px 0;
             text-transform: uppercase;
@@ -299,7 +301,7 @@
         /* Enhanced subtitle */
         .hero-subtitle {
             color: #fff;
-            font-size: clamp(18px, 3vw, 28px);
+            font-size: 2rem;
             margin: 0 0 40px 0;
             max-width: 600px;
             font-weight: 300;
@@ -382,7 +384,7 @@
         /* Additional hero elements */
         .hero-tagline {
             color: rgba(255, 255, 255, 0.8);
-            font-size: clamp(14px, 2vw, 18px);
+            font-size: 1rem;
             margin: 20px 0 0 0;
             max-width: 500px;
             font-weight: 300;
@@ -480,15 +482,20 @@
         }
 
         /* Responsive adjustments */
-        @media (max-width: 1100px) {
+        @media (max-width: 1148px) {
+            .header-inner {
+                padding: 0 80px;
+            }
             .main-nav ul {
+                gap: 1rem;
+            }
+            /* .main-nav ul {
                 gap: 36px
             }
 
             .logo {
                 height: 80px
             }
-
             .header-icons i {
                 font-size: 28px
             }
@@ -512,11 +519,15 @@
 
             .hero-title::after {
                 right: -60px;
-            }
+            } */
         }
 
-        @media (max-width: 800px) {
-            .main-nav ul {
+        @media (max-width: 948px) {
+                .header-inner {
+        padding: 0 29px;
+    }
+           
+            /* .main-nav ul {
                 gap: 20px;
                 font-size: 16px
             }
@@ -545,11 +556,11 @@
 
             .hero-subtitle::after {
                 display: none;
-            }
+            } */
         }
 
         @media (max-width: 560px) {
-            .left {
+            /* .left {
                 display: none
             }
 
@@ -590,7 +601,7 @@
             .scroll-indicator {
                 bottom: 20px;
                 font-size: 12px;
-            }
+            } */
         }
 
         /* hamburger styles (visible only on small screens) */
@@ -757,13 +768,13 @@
         <div class="diamond-particle" style="top: 50%; left: 75%; animation-delay: 5s;"></div>
 
         <div class="hero-inner">
-            <h1 class="hero-title">Zebkar</h1>
+            <span class="hero-title">Zebkar</span>
             <p class="hero-subtitle">Timeless Elegance, Crafted to Perfection</p>
             <button class="hero-cta">Discover Our Collection</button>
             <p class="hero-tagline">Exquisite jewelry pieces that celebrate life's precious moments</p>
         </div>
-        
-       
+
+
     </section>
 
     <!-- optional page content -->
