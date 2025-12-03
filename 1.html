@@ -16,7 +16,8 @@
     <style>
         /* Base font size for REM calculations */
         html {
-            font-size: 100%; /* 16px default */
+            font-size: 100%;
+            scroll-behavior: smooth;
         }
 
         :root {
@@ -24,11 +25,13 @@
             --accent: #a58b5c;
             --accent-light: #e0c98f;
             --accent-dark: #8a754d;
-            --header-height: 7.5rem; /* 120px equivalent */
+            --header-height: 7.5rem;
             --font-family: "Georgia", "Times New Roman", serif;
             --transition: all 0.3s ease;
             --shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
-            --container-max-width: 87.5rem; /* 1400px */
+            --container-max-width: 87.5rem;
+            --text-light: rgba(255, 255, 255, 0.9);
+            --text-muted: rgba(255, 255, 255, 0.7);
         }
 
         /* Reset / base */
@@ -41,6 +44,7 @@
         html,
         body {
             height: 100%;
+            overflow-x: hidden;
         }
 
         body {
@@ -48,6 +52,27 @@
             background: #fff;
             color: #fff;
             line-height: 1.6;
+            position: relative;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 0.75rem;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(21, 21, 21, 0.95);
+            border-radius: 0.375rem;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #a58b5c, #8a754d);
+            border-radius: 0.375rem;
+            border: 0.125rem solid rgba(21, 21, 21, 0.95);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #e0c98f, #a58b5c);
         }
 
         /* Header */
@@ -59,6 +84,7 @@
             top: 0;
             z-index: 1000;
             transition: var(--transition);
+            width: 100%;
         }
 
         .site-header.scrolled {
@@ -137,11 +163,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .logo {
-            margin-top: 20px;
-            width: 10.25rem; /* 180px */
+            width: 10.25rem;
             height: auto;
             object-fit: contain;
             transition: transform 0.25s ease;
@@ -191,6 +219,128 @@
             font-weight: bold;
         }
 
+        /* Hamburger menu (hidden by default) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 2rem;
+            height: 1.5rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            position: relative;
+            z-index: 1001;
+            margin-right: 1rem;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 0.1875rem;
+            width: 100%;
+            background-color: var(--accent);
+            border-radius: 0.1875rem;
+            transition: var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(0.5625rem) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-0.5625rem) rotate(-45deg);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(21, 21, 21, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: translateX(-100%);
+            transition: transform 0.4s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .mobile-nav a {
+            color: var(--accent);
+            font-size: 1.75rem;
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 1rem;
+        }
+
+        .mobile-nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0.125rem;
+            bottom: 0;
+            left: 0;
+            background: var(--accent-light);
+            transition: var(--transition);
+        }
+
+        .mobile-nav a:hover {
+            color: var(--accent-light);
+        }
+
+        .mobile-nav a:hover:after {
+            width: 100%;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .close-menu:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(90deg);
+        }
+
         /* Hero Section */
         .hero {
             height: calc(100vh - var(--header-height));
@@ -200,7 +350,7 @@
             justify-content: center;
             background:
                 linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url('./img/download\ -\ 2025-11-24T030001.033.jpeg.jpg');
+                url('./img/banner1.1-01.webp');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -254,8 +404,8 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            font-size: clamp(3rem, 10vw, 10rem);
-            line-height: 0.9;
+            font-size: clamp(5rem, 10vw, 10rem);
+            line-height: 1;
             margin: 0 0 1.25rem 0;
             text-transform: uppercase;
             letter-spacing: clamp(0.125rem, 2vw, 0.375rem);
@@ -266,31 +416,13 @@
             -moz-osx-font-smoothing: grayscale;
             animation: fadeInUp 1s ease-out;
             position: relative;
-        }
-
-        /* Decorative elements around the title */
-        .hero-title::before,
-        .hero-title::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: clamp(2.5rem, 10vw, 5rem);
-            height: 0.125rem;
-            background: linear-gradient(to right, transparent, var(--accent), transparent);
-        }
-
-        .hero-title::before {
-            left: clamp(-3.75rem, -15vw, -6.25rem);
-        }
-
-        .hero-title::after {
-            right: clamp(-3.75rem, -15vw, -6.25rem);
+            padding: 0 1rem;
         }
 
         /* Hero subtitle */
         .hero-subtitle {
             color: #fff;
-            font-size: clamp(1.25rem, 4vw, 2rem);
+            font-size: clamp(1.25rem, 4vw, 1.75rem);
             margin: 0 0 2.5rem 0;
             max-width: 37.5rem;
             font-weight: 300;
@@ -298,18 +430,7 @@
             text-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.5);
             animation: fadeInUp 1s ease-out 0.3s both;
             position: relative;
-        }
-
-        /* Sparkle effect to subtitle */
-        .hero-subtitle::after {
-            content: '✦';
-            position: absolute;
-            right: -1.875rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--accent-light);
-            font-size: 1.25rem;
-            animation: sparkle 2s infinite;
+            padding: 0 1rem;
         }
 
         /* CTA button */
@@ -317,7 +438,7 @@
             background: transparent;
             border: 0.125rem solid var(--accent);
             color: var(--accent);
-            padding: 0.875rem 2rem;
+            padding: 1rem 2.5rem;
             font-size: clamp(1rem, 2vw, 1.125rem);
             font-weight: 500;
             letter-spacing: 0.09375rem;
@@ -328,6 +449,8 @@
             overflow: hidden;
             animation: fadeInUp 1s ease-out 0.6s both;
             z-index: 2;
+            border-radius: 0.25rem;
+            font-family: 'Amiri', serif;
         }
 
         .hero-cta:before {
@@ -352,24 +475,6 @@
             left: 100%;
         }
 
-        /* Shine effect on hover */
-        .hero-cta::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 20%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(30deg);
-            transition: all 0.6s;
-        }
-
-        .hero-cta:hover::after {
-            left: 120%;
-            transition: left 0.6s;
-        }
-
         /* Hero tagline */
         .hero-tagline {
             color: rgba(255, 255, 255, 0.8);
@@ -379,6 +484,8 @@
             font-weight: 300;
             letter-spacing: 0.0625rem;
             animation: fadeInUp 1s ease-out 0.9s both;
+            padding: 0 1rem;
+            text-align: center;
         }
 
         /* Scroll indicator */
@@ -402,6 +509,20 @@
             margin-top: 0.3125rem;
             display: block;
             font-size: 1.25rem;
+        }
+
+        /* Sample content section */
+        .content-section {
+            padding: 5rem 2rem;
+            background: var(--bg);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            font-weight: 700;
         }
 
         /* Animations */
@@ -436,17 +557,6 @@
             }
         }
 
-        @keyframes sparkle {
-            0%, 100% {
-                opacity: 0.5;
-                transform: translateY(-50%) scale(1);
-            }
-            50% {
-                opacity: 1;
-                transform: translateY(-50%) scale(1.2);
-            }
-        }
-
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {
                 transform: translateX(-50%) translateY(0);
@@ -459,10 +569,16 @@
             }
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 71.875rem) { /* 1150px */
+        /* RESPONSIVE BREAKPOINTS */
+
+        /* Tablet and below (less than 1024px) */
+        @media (max-width: 64rem) {
+            :root {
+                --header-height: 6rem;
+            }
+            
             .header-inner {
-                padding: 0 4%;
+                padding: 0 3%;
             }
             
             .main-nav ul {
@@ -470,35 +586,58 @@
             }
             
             .logo {
-                margin-top: 0px;
-                width: 6.3rem;
-            }
-            
-            .header-icons {
-                gap: 1.25rem;
-            }
-            
-            .header-icons i {
-                font-size: 1.375rem;
-            }
-        }
-
-        @media (max-width: 59.25rem) { /* 948px */
-            .header-inner {
-                padding: 0 3%;
-            }
-            
-            .main-nav ul {
-                gap: 1rem;
+                width: 8rem;
             }
             
             .main-nav a {
                 font-size: 1rem;
             }
             
+            .hero-title {
+                font-size: clamp(2.5rem, 8vw, 4rem);
+            }
+        }
+
+        /* Large mobile (less than 768px) */
+        @media (max-width: 48rem) {
+            :root {
+                --header-height: 5rem;
+            }
+            
+            .header-inner {
+                padding: 0 2%;
+                justify-content: space-between;
+                gap: 0;
+            }
+            
+            .left {
+                flex: 0 1 auto;
+            }
+            
+            .right {
+                flex: 0 1 auto;
+            }
+            
+            .center {
+                position: static;
+                transform: none;
+                flex: 1;
+                justify-content: center;
+            }
+            
+            /* Hide desktop nav */
+            .main-nav {
+                display: none;
+            }
+            
+            /* Show hamburger */
+            .hamburger {
+                display: flex;
+            }
+            
             .logo {
-                margin-top: 0px;
-                width: 4.75rem;
+                width: 6rem;
+                margin-top: 0;
             }
             
             .header-icons {
@@ -509,76 +648,54 @@
                 font-size: 1.25rem;
             }
             
-            .hero-title::before,
-            .hero-title::after {
-                display: none;
-            }
-            
-            .hero-cta {
-                padding: 0.75rem 1.75rem;
-            }
-        }
-
-        @media (max-width: 768px) { /* 768px */
-            :root {
-                --header-height: 6.25rem;
-            }
-            
-            .header-inner {
-                padding: 0 2%;
-                height: var(--header-height);
-            }
-            
-            .main-nav {
-                display: none;
-            }
-            
-            .logo {
-                margin-top: 0px;
-                width: 7.5rem;
-            }
-            
-            .hamburger {
-                display: flex;
-            }
-            
             .hero {
                 height: calc(100vh - var(--header-height));
+                min-height: 30rem;
             }
             
             .hero-inner {
-                padding: 1.25rem 1rem;
+                padding: 1.5rem 1rem;
             }
             
             .hero-title {
                 margin-bottom: 1rem;
+                padding: 0 0.5rem;
             }
             
             .hero-subtitle {
-                margin-bottom: 1.875rem;
+                margin-bottom: 2rem;
+                padding: 0 0.5rem;
+                font-size: 1.25rem;
             }
             
             .hero-cta {
-                padding: 0.75rem 1.5rem;
+                padding: 0.875rem 2rem;
             }
             
-            .hero-subtitle::after {
-                display: none;
+            .hero-tagline {
+                margin-top: 1rem;
+                padding: 0 0.5rem;
             }
         }
 
-        @media (max-width: 35rem) { /* 560px */
+        /* Small mobile (less than 480px) */
+        @media (max-width: 30rem) {
             :root {
-                --header-height: 5rem;
+                --header-height: 4.5rem;
             }
             
             .header-inner {
-                padding: 0 1.5%;
+                padding: 0 1rem;
             }
             
             .logo {
-                margin-top: 0px;
-                width: 6.25rem;
+                width: 5rem;
+            }
+            
+            .hamburger {
+                width: 1.75rem;
+                height: 1.25rem;
+                margin-right: 0.5rem;
             }
             
             .header-icons {
@@ -590,47 +707,52 @@
             }
             
             .hero {
-                min-height: 17.5rem;
-            }
-            
-            .hero-inner {
-                padding: 1rem;
+                min-height: 25rem;
             }
             
             .hero-title {
+                font-size: 2.5rem;
                 letter-spacing: 0.0625rem;
             }
             
             .hero-subtitle {
+                font-size: 1.125rem;
                 margin-bottom: 1.5rem;
             }
             
             .hero-cta {
-                padding: 0.625rem 1.25rem;
+                padding: 0.75rem 1.5rem;
+                font-size: 0.875rem;
             }
             
             .hero-tagline {
-                margin-top: 1rem;
+                font-size: 0.875rem;
+                margin-top: 0.75rem;
             }
             
             .scroll-indicator {
                 bottom: 1.25rem;
                 font-size: 0.75rem;
             }
+            
+            .mobile-nav a {
+                font-size: 1.5rem;
+                padding: 0.5rem;
+            }
+            
+            .close-menu {
+                top: 1.5rem;
+                right: 1.5rem;
+                font-size: 1.5rem;
+                width: 2.5rem;
+                height: 2.5rem;
+            }
         }
 
-        @media (max-width: 25rem) { /* 400px */
-            .header-inner {
-                padding: 0 1%;
-            }
-            
+        /* Extra small mobile (less than 360px) */
+        @media (max-width: 22.5rem) {
             .logo {
-                margin-top: 0px;    
-                width: 5.625rem;
-            }
-            
-            .header-icons {
-                gap: 0.5rem;
+                width: 4rem;
             }
             
             .header-icons i {
@@ -638,183 +760,78 @@
             }
             
             .hero-title {
-                font-size: clamp(2.5rem, 12vw, 3rem);
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .hero-cta {
+                padding: 0.625rem 1.25rem;
+                font-size: 0.8125rem;
             }
         }
 
-        /* Hamburger menu (mobile only) */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 1.875rem;
-            height: 1.3125rem;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            position: relative;
-            z-index: 1001;
+        /* Prevent horizontal scrolling */
+        .container {
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
-        .hamburger span {
-            display: block;
-            height: 0.1875rem;
-            width: 100%;
-            background-color: var(--accent);
-            border-radius: 0.1875rem;
-            transition: var(--transition);
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
 
-        .hamburger.active span:nth-child(1) {
-            transform: translateY(0.5625rem) rotate(45deg);
+        /* Focus styles for accessibility */
+      
+        /* Print styles */
+        @media print {
+            .site-header,
+            .hero-cta,
+            .scroll-indicator,
+            .mobile-menu {
+                display: none !important;
+            }
+            
+            .hero {
+                background: none !important;
+                color: #000 !important;
+                min-height: auto !important;
+                height: auto !important;
+            }
+            
+            .hero-title {
+                background: none !important;
+                color: #000 !important;
+                text-shadow: none !important;
+            }
+            
+            body {
+                color: #000 !important;
+                background: #fff !important;
+            }
         }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: translateY(-0.5625rem) rotate(-45deg);
-        }
-
-        /* Mobile menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(21, 21, 21, 0.98);
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transform: translateX(-100%);
-            transition: transform 0.4s ease;
-        }
-
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-
-        .mobile-nav {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.875rem;
-        }
-
-        .mobile-nav a {
-            color: var(--accent);
-            font-size: 1.5rem;
-            text-decoration: none;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .mobile-nav a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0.125rem;
-            bottom: -0.3125rem;
-            left: 0;
-            background: var(--accent-light);
-            transition: var(--transition);
-        }
-
-        .mobile-nav a:hover {
-            color: var(--accent-light);
-        }
-
-        .mobile-nav a:hover:after {
-            width: 100%;
-        }
-
-        .close-menu {
-            position: absolute;
-            top: 1.875rem;
-            right: 1.875rem;
-            background: none;
-            border: none;
-            color: var(--accent);
-            font-size: 1.875rem;
-            cursor: pointer;
-        }
-        /* Custom Scrollbar Styling */
-::-webkit-scrollbar {
-    width: 0.75rem;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(21, 21, 21, 0.95);
-    border-radius: 0.375rem;
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #a58b5c, #8a754d);
-    border-radius: 0.375rem;
-    border: 0.125rem solid rgba(21, 21, 21, 0.95);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, #e0c98f, #a58b5c);
-    box-shadow: 0 0 0.5rem rgba(224, 201, 143, 0.3);
-}
-
-::-webkit-scrollbar-thumb:active {
-    background: linear-gradient(to bottom, #8a754d, #6d5c3e);
-}
-
-/* For Firefox */
-* {
-    scrollbar-width: thin;
-    scrollbar-color: #a58b5c #151515;
-}
-
-/* Optional: Add diamond sparkle effect on hover */
-::-webkit-scrollbar-thumb::after {
-    content: '✦';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgba(255, 255, 255, 0.3);
-    font-size: 0.5rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover::after {
-    opacity: 1;
-}
-
-/* Smooth scrolling for the entire page */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Responsive scrollbar for smaller screens */
-@media (max-width: 48rem) {
-    ::-webkit-scrollbar {
-        width: 0.5rem;
-    }
-}
     </style>
 </head>
 
-<body>
+<body class="container">
     <header class="site-header">
         <div class="header-inner">
             <div class="left">
-                <button class="hamburger" aria-label="Toggle menu">
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
-                <nav class="main-nav" aria-label="Main">
+                <nav class="main-nav" aria-label="Main Navigation">
                     <ul>
                         <li><a href="#">Home</a></li>
                         <li><a href="#">Shop</a></li>
@@ -826,26 +843,28 @@ html {
             </div>
 
             <div class="center">
-                <img class="logo" src="./img/zebkar.31-01-03.png" alt="Zebkar logo">
+                <img class="logo" src="./img/zebkar.31-01-03.png" alt="Zebkar - Premium Jewelry & Diamonds">
             </div>
 
             <div class="right">
-                <div class="header-icons" aria-hidden="true">
-                    <i class="fa-solid fa-magnifying-glass" aria-label="Search"></i>
-                    <div class="cart-icon" aria-hidden="true">
-                        <i class="fa-solid fa-cart-shopping" aria-label="Shopping cart"></i>
-                    </div>
+                <div class="header-icons">
+                    
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    
+                        
+                            <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu">
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
         <button class="close-menu" aria-label="Close menu">
             <i class="fa-solid fa-xmark"></i>
         </button>
-        <nav class="mobile-nav" aria-label="Mobile">
+        <nav class="mobile-nav" aria-label="Mobile Navigation">
             <a href="#">Home</a>
             <a href="#">Shop</a>
             <a href="#">Gifting</a>
@@ -855,7 +874,7 @@ html {
     </div>
 
     <!-- Hero Section -->
-    <section class="hero" role="region" aria-label="Diamond banner">
+    <section class="hero" role="region" aria-label="Diamond Collection">
         <!-- Diamond particles -->
         <div class="diamond-particle" style="top: 20%; left: 15%; animation-delay: 0s;"></div>
         <div class="diamond-particle" style="top: 60%; left: 10%; animation-delay: 1s;"></div>
@@ -865,21 +884,21 @@ html {
         <div class="diamond-particle" style="top: 50%; left: 75%; animation-delay: 5s;"></div>
 
         <div class="hero-inner">
-            <span class="hero-title">Zebkar</span>
+            <h1 class="hero-title">Zebkar</h1>
             <p class="hero-subtitle">Timeless Elegance, Crafted to Perfection</p>
-            <button class="hero-cta">Discover Our Collection</button>
+            <button class="hero-cta" aria-label="Discover our jewelry collection">Discover Our Collection</button>
             <p class="hero-tagline">Exquisite jewelry pieces that celebrate life's precious moments</p>
         </div>
 
-        <div class="scroll-indicator">
+        <div class="scroll-indicator" role="navigation" aria-label="Scroll to content">
             Scroll to explore
-            <i class="fa-solid fa-chevron-down"></i>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
         </div>
     </section>
 
     <!-- Main content -->
     <main>
-        <!-- Your other page content goes here -->
+        
     </main>
 
     <script>
@@ -895,52 +914,125 @@ html {
 
         // Mobile menu functionality
         const hamburger = document.querySelector('.hamburger');
-        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenu = document.getElementById('mobileMenu');
         const closeMenu = document.querySelector('.close-menu');
+        const body = document.body;
 
-        hamburger.addEventListener('click', function () {
-            this.classList.toggle('active');
+        function toggleMobileMenu() {
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', !isExpanded);
             mobileMenu.classList.toggle('active');
-        });
+            body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
 
-        closeMenu.addEventListener('click', function () {
+        function closeMobileMenu() {
             hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
             mobileMenu.classList.remove('active');
-        });
+            body.style.overflow = '';
+        }
+
+        hamburger.addEventListener('click', toggleMobileMenu);
+        closeMenu.addEventListener('click', closeMobileMenu);
 
         // Close mobile menu when clicking on a link
         const mobileLinks = document.querySelectorAll('.mobile-nav a');
         mobileLinks.forEach(link => {
-            link.addEventListener('click', function () {
-                hamburger.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            });
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Close mobile menu when clicking outside
+        mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) {
+                closeMobileMenu();
+            }
+        });
+
+        // Close mobile menu with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
         });
 
         // Create additional diamond particles dynamically
         function createDiamondParticles() {
             const hero = document.querySelector('.hero');
-            const particleCount = 8;
+            const existingParticles = document.querySelectorAll('.diamond-particle').length;
+            const particleCount = Math.max(0, 12 - existingParticles);
 
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('diamond-particle');
 
-                // Random position
+                // Random position within viewport
                 const top = Math.random() * 100;
                 const left = Math.random() * 100;
                 const delay = Math.random() * 6;
+                const size = 0.125 + Math.random() * 0.25;
 
                 particle.style.top = `${top}%`;
                 particle.style.left = `${left}%`;
                 particle.style.animationDelay = `${delay}s`;
+                particle.style.width = `${size}rem`;
+                particle.style.height = `${size}rem`;
 
                 hero.appendChild(particle);
             }
         }
 
+        // Hero CTA button functionality
+        const heroCta = document.querySelector('.hero-cta');
+        heroCta.addEventListener('click', function() {
+            // Smooth scroll to collections section
+            document.querySelector('.content-section').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
         // Initialize particles when page loads
-        window.addEventListener('load', createDiamondParticles);
+        window.addEventListener('load', function() {
+            createDiamondParticles();
+            
+            // Add loading animation to logo
+            const logo = document.querySelector('.logo');
+            logo.style.animation = 'fadeInUp 0.8s ease-out';
+        });
+
+        // Handle window resize
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                // Close mobile menu on resize to larger screens
+                if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            }, 250);
+        });
+
+        // Performance optimization: Intersection Observer for particles
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add more particles when hero is visible
+                    createDiamondParticles();
+                }
+            });
+        }, observerOptions);
+
+        // Observe hero section
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+            observer.observe(heroSection);
+        }
     </script>
 </body>
 
