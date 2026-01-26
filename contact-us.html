@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Zebkar</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+   <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+        <!-- 1. OFFER STRIP (Topmost) -->
+    <!-- 1. OFFER STRIP (Topmost) -->
+    <div class="offer-strip">
+        ENJOY 10% OFF ON YOUR FIRST ORDER
+    </div>
+
+    <!-- 2. HEADER (Fixed & Sticky) -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="nav-section left">
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="main-nav" aria-label="Main Navigation">
+                    <ul>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/shop.html">Shop</a></li>
+                        <li><a href="/gift.html">Gifting</a></li>
+                        <li><a href="/our-story.html">Our Story</a></li>
+                        <li><a href="./contact-us.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="logo-container">
+                <img class="logo" src="./assets/img/zebkar.31-01-03.png" alt="Zebkar - Premium Jewelry & Diamonds">
+            </div>
+
+            <div class="nav-section right">
+                <div class="header-icons">
+                    <div class="search-container">
+                        <button class="icon-btn search-trigger" aria-label="Search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    <button class="icon-btn cart-btn" aria-label="Shopping Cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-badge">3</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <button class="close-menu" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <nav class="mobile-nav" aria-label="Mobile Navigation">
+            <a href="/index.html">Home</a>
+            <a href="/shop.html">Shop</a>
+            <a href="/gift.html">Gifting</a>
+            <a href="./our-story.html">Our Story</a>
+            <a href="./contact-us.html">Contact</a>
+        </nav>
+    </div>
+
+    <div class="contact-container">
+        <!-- Section Title -->
+        <div class="section-title">
+            <h1>Contact Us</h1>
+            <p>"Where Your Story Meets Our Craftsmanship"</p>
+        </div>
+
+        <div class="content-grid">
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <div class="form-header">
+                    <h2>Send Us a Message</h2>
+                    <p>Have questions or special requests? We're here to help.</p>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label class="form-label" for="name">
+                            <i class="fas fa-user"></i> Your Name
+                        </label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            class="form-input" 
+                            placeholder="Enter your full name"
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">
+                            <i class="fas fa-envelope"></i> Email Address
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="form-input" 
+                            placeholder="Enter your email address"
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="message">
+                            <i class="fas fa-comment-alt"></i> Your Message
+                        </label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            class="form-input" 
+                            placeholder="Tell us about your jewelry needs, questions, or special requests..."
+                            rows="5"
+                        ></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Message Sent Successfully!</h3>
+                    <p>Thank you for contacting Zebkar. We'll get back to you within 24 hours.</p>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info-container">
+                <!-- Contact Details Card -->
+                <div class="info-card">
+                    <div class="info-header">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="info-title">Visit Our Boutique</h3>
+                    </div>
+                    <div class="info-content">
+                        <p><i class="fas fa-store"></i> <strong>Zebkar Jewelry Boutique</strong></p>
+                        <p><i class="fas fa-location-dot"></i> 123 Luxury Street Multan, Pakistan</p>
+                        <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +92 123456789</p>
+                        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> info@zebkar.com</p>
+                    </div>
+                </div>
+
+                <!-- Business Hours Card -->
+                <div class="info-card">
+                    <div class="info-header">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3 class="info-title">Business Hours</h3>
+                    </div>
+                    <div class="info-content">
+                        <table class="hours-table">
+                            <tr>
+                                <td>Monday - Friday</td>
+                                <td>10:00 AM - 8:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td>10:00 AM - 6:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td>12:00 PM - 5:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Holidays</td>
+                                <td>By Appointment</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Connect With Us Card -->
+                <div class="info-card">
+                    <div class="info-header">
+                        <div class="info-icon">
+                            <i class="fas fa-hashtag"></i>
+                        </div>
+                        <h3 class="info-title">Connect With Us</h3>
+                    </div>
+                    <div class="info-content">
+                        <p>Follow us for latest collections, styling tips, and exclusive offers.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Pinterest">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Placeholder -->
+              
+            </div>
+        </div>
+    </div>
+<footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+            <!-- Left column: Logo and social -->
+            <div class="footer-left">
+                <a href="#" class="footer-logo">
+                    <img src="./assets/img/zebkar.31-01-03.png" alt="Zebkar Logo" width="160" height="auto">
+                </a>
+
+                <p class="footer-tagline">
+                    Crafting timeless jewelry pieces that tell your unique story. Experience the perfect blend of
+                    tradition and contemporary design.
+                </p>
+
+                <div class="social-section">
+                    <h3 class="social-title">Connect With Us</h3>
+                    <div class="social-icons" aria-label="Social media links">
+                        <a href="#" class="social-link" aria-label="Follow us on TikTok" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+
+                        <a href="#" class="social-link" aria-label="Follow us on Facebook" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#" class="social-link" aria-label="Follow us on Instagram" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="#" class="social-link" aria-label="Follow us on Pinterest" title="Pinterest">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle column: Navigation links -->
+            <div class="footer-links">
+                <h3 class="links-title">Quick Links</h3>
+                <ul class="links-list">
+                    <li><a href="#" aria-label="Home page">Home</a></li>
+                    <li><a href="#" aria-label="Browse our collections">Shop</a></li>
+                    <li><a href="#" aria-label="Information for buyers">Gifting</a></li>
+                    <li><a href="#" aria-label="Information for sellers">Our Story</a></li>
+                    <li><a href="#" aria-label="Meet our team">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Right column: Contact information -->
+            <div class="footer-contact">
+                <h3 class="contact-title">Contact Us</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-phone contact-icon"></i>
+                        <span class="contact-text">
+                            <strong>Phone:</strong><br>
+                            +92 123456789
+                        </span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <span class="contact-text">
+                            <strong>Email:</strong><br>
+                            info@zebkar.com
+                        </span>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <span class="contact-text">
+                            <strong>Address:</strong><br>
+                            123 Street, Multan, Pakistan
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom">
+            <p class="copyright">
+                &copy; 2026 Zebkar Jewelry. All rights reserved.
+            </p>
+            <div class="legal-links">
+                <a href="#" aria-label="Privacy policy">Privacy Policy</a>
+                <a href="#" aria-label="Terms of service">Terms of Service</a>
+                <a href="#" aria-label="Cookie policy">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            const originalBtnHTML = submitBtn.innerHTML;
+            
+            // Get form values
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Validate form
+            if (!formData.name || !formData.email || !formData.message) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Show loading state
+            submitBtn.innerHTML = '<span class="loading"></span> Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call with sparkle effect
+            createSparkleEffect(submitBtn);
+            
+            setTimeout(() => {
+                // Show success message
+                successMessage.style.display = 'block';
+                
+                // Reset form
+                this.reset();
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalBtnHTML;
+                    submitBtn.disabled = false;
+                }, 3000);
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+                
+            }, 2000);
+        });
+
+        // Sparkle effect function
+        function createSparkleEffect(element) {
+            const rect = element.getBoundingClientRect();
+            
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.style.cssText = `
+                        position: fixed;
+                        width: 6px;
+                        height: 6px;
+                        background: linear-gradient(135deg, #e0c98f 0%, #a58b5c 50%, #8a754d 100%);
+                        border-radius: 50%;
+                        pointer-events: none;
+                        z-index: 1000;
+                        animation: sparkleAnim 1s ease-out forwards;
+                        filter: blur(0.5px);
+                        top: ${rect.top + rect.height/2}px;
+                        left: ${rect.left + rect.width/2}px;
+                    `;
+                    
+                    document.body.appendChild(sparkle);
+                    
+                    // Animate to random position
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = Math.random() * 100 + 50;
+                    const targetX = Math.cos(angle) * distance;
+                    const targetY = Math.sin(angle) * distance;
+                    
+                    sparkle.animate([
+                        { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+                        { transform: `translate(${targetX}px, ${targetY}px) scale(0)`, opacity: 0 }
+                    ], {
+                        duration: 1000,
+                        easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+                    });
+                    
+                    setTimeout(() => sparkle.remove(), 1000);
+                }, i * 100);
+            }
+        }
+
+        // Add hover effect to info cards
+        const infoCards = document.querySelectorAll('.info-card');
+        infoCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.info-icon');
+                if (icon) {
+                    icon.style.transform = 'rotate(360deg)';
+                    setTimeout(() => {
+                        icon.style.transform = 'rotate(5deg)';
+                    }, 300);
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.info-icon');
+                if (icon) {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+
+        // Add ripple effect to social links
+        const socialLinks = document.querySelectorAll('.social-link');
+        socialLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(224, 201, 143, 0.3);
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    width: ${size}px;
+                    height: ${size}px;
+                    top: ${y}px;
+                    left: ${x}px;
+                    pointer-events: none;
+                `;
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                    // In real implementation, this would navigate to social media
+                    alert(`Navigating to ${this.querySelector('i').className.split(' ')[1].replace('fa-', '')}`);
+                }, 600);
+            });
+        });
+    </script>
+</body>
+<script src="./assets/js/script.js"></script>
+</html>

@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Zebkar — Premium Jewelry & Diamonds</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('./assets/img/banner.webp');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            animation: kenburns 30s infinite alternate ease-in-out;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- 1. OFFER STRIP (Topmost) -->
+    <div class="offer-strip">
+        ENJOY 10% OFF ON YOUR FIRST ORDER
+    </div>
+
+    <!-- 2. HEADER (Fixed & Sticky) -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="nav-section left">
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="main-nav" aria-label="Main Navigation">
+                    <ul>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/shop.html">Shop</a></li>
+                        <li><a href="/gift.html">Gifting</a></li>
+                        <li><a href="/our-story.html">Our Story</a></li>
+                        <li><a href="./contact-us.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="logo-container">
+                <img class="logo" src="./assets/img/zebkar.31-01-03.png" alt="Zebkar - Premium Jewelry & Diamonds">
+            </div>
+
+            <div class="nav-section right">
+                <div class="header-icons">
+                    <div class="search-container">
+                        <button class="icon-btn search-trigger" aria-label="Search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    <button class="icon-btn cart-btn" aria-label="Shopping Cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-badge">3</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <button class="close-menu" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <nav class="mobile-nav" aria-label="Mobile Navigation">
+            <a href="/index.html">Home</a>
+            <a href="/shop.html">Shop</a>
+            <a href="/gift.html">Gifting</a>
+            <a href="./our-story.html">Our Story</a>
+            <a href="./contact-us.html">Contact</a>
+        </nav>
+    </div>
+
+    <!-- 3. UPDATED HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-background"></div>
+        <!-- Diamond particles will be added dynamically -->
+
+        <div class="hero-content">
+            <h1 class="hero-title">Zebkar</h1>
+            <p class="hero-subtitle">زیب that feels like you</p>
+            <div class="hero-buttons">
+                <button class="hero-cta secondary" aria-label="Explore our products">
+                    Explore Our Products
+                </button>
+                <!-- <button class="hero-cta" aria-label="Book a consultation">
+                    Book a Consultation
+                </button> -->
+            </div>
+        </div>
+
+        <div class="scroll-indicator" role="navigation" aria-label="Scroll to content">
+            Scroll to explore
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </div>
+    </section>
+
+    <!-- 4. FEATURED SECTION WITH CONTINUOUS SLIDER -->
+    <section class="featured-section" id="featured">
+        <h2 class="featured-title">Featured Categories</h2>
+
+        <div class="featured-categories-container">
+            <div class="featured-categories-track" id="featuredSlider">
+                <!-- Cards will be duplicated by JavaScript for seamless scrolling -->
+                <div class="featured-category-card">
+                    <img src="./assets/img/home page/bracelets icon.png" alt="Bracelet" class="featured-category-img" />
+                    <span class="featured-category-label">BRACELETS</span>
+                </div>
+                <div class="featured-category-card">
+                    <img src="./assets/img/home page/chains icon.png" alt="Chains"
+                        class="featured-category-img chain" />
+                    <span class="featured-category-label">CHAINS</span>
+                </div>
+                <div class="featured-category-card">
+                    <img src="./assets/img/home page/earrings.svg" alt="earrings" class="featured-category-img" />
+                    <span class="featured-category-label">Earrings</span>
+                </div>
+                <div class="featured-category-card">
+                    <img src="./assets/img/home page/sets.svg" alt="set" class="featured-category-img" />
+                    <span class="featured-category-label">Sets</span>
+                </div>
+                <div class="featured-category-card">
+                    <img src="./assets/img/home page/ring icon.png" alt="Rings" class="featured-category-img" />
+                    <span class="featured-category-label">RINGS</span>
+                </div>
+                <div class="featured-category-card">
+                    <img src="./assets/img/home page/bracelets icon.png" alt="Bracelet" class="featured-category-img" />
+                    <span class="featured-category-label">BRACELETS</span>
+                </div>
+                <div class="featured-category-card">
+                    <img src="./assets/img/home page/chains icon.png" alt="Chains"
+                        class="featured-category-img chain" />
+                    <span class="featured-category-label">CHAINS</span>
+                </div>
+                <div class="featured-category-card">
+                    <img src="./assets/img/home page/earrings.svg" alt="earrings" class="featured-category-img" />
+                    <span class="featured-category-label">Earrings</span>
+                </div>
+                <div class="featured-category-card">
+                    <img src="./assets/img/home page/sets.svg" alt="set" class="featured-category-img" />
+                    <span class="featured-category-label">Sets</span>
+                </div>
+                <div class="featured-category-card">
+                    <img src="./assets/img/home page/ring icon.png" alt="Rings" class="featured-category-img" />
+                    <span class="featured-category-label">RINGS</span>
+                </div>
+                <div class="featured-category-card">
+                    <img src="./assets/img/home page/bracelets icon.png" alt="Bracelet" class="featured-category-img" />
+                    <span class="featured-category-label">BRACELETS</span>
+                </div>
+                <div class="featured-category-card">
+                    <img src="./assets/img/home page/chains icon.png" alt="Chains"
+                        class="featured-category-img chain" />
+                    <span class="featured-category-label">CHAINS</span>
+                </div>
+                <div class="featured-category-card">
+                    <img src="./assets/img/home page/earrings.svg" alt="earrings" class="featured-category-img" />
+                    <span class="featured-category-label">Earrings</span>
+                </div>
+                <div class="featured-category-card">
+                    <img src="./assets/img/home page/sets.svg" alt="set" class="featured-category-img" />
+                    <span class="featured-category-label">Sets</span>
+                </div>
+                <div class="featured-category-card">
+                    <img src="./assets/img/home page/ring icon.png" alt="Rings" class="featured-category-img" />
+                    <span class="featured-category-label">RINGS</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="featured-urdu">
+            ہزاروں زیور ایسے کہ ہر زیور پہ دم نکلے
+        </div>
+        <button class="featured-view-btn">View All Collection</button>
+    </section>
+
+    <!-- 5. UPDATED GIFTING EDIT SECTION -->
+    <div class="gifting-edit-wrapper">
+        <div class="gifting-edit-container">
+            <div class="gifting-edit-content">
+                <div class="gifting-edit-title">The Gifting Edit</div>
+                <div class="gifting-edit-description">
+                    Because every gift becomes a memory,<br>
+                    and every memory deserves<br>
+                    something beautiful.
+                </div>
+                <a href="#" class="gifting-edit-btn">Explore Gifting Options</a>
+            </div>
+
+            <div class="gifting-edit-image-section">
+                <img src="./assets/img/home page/Gift.png" alt="Gift Box" class="gifting-edit-gift-img" />
+            </div>
+        </div>
+    </div>
+    <section class="gallery-section" aria-label="Jewelry Collection Gallery">
+        <div class="section-header">
+            <h2 class="section-title">Because you deserve to <span class="highlight">shine</span> at every place.......
+            </h2>
+        </div>
+
+        <div class="gallery-container">
+            <div class="gallery-row">
+                <article class="gallery-card"
+                    style="background-image: url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1350&q=80');">
+                    <div class="card-overlay">
+                        <h3>On the Occasions</h3>
+                        <p class="card-description">Make every celebration unforgettable with our exquisite collection
+                            designed for special moments.</p>
+                        <a href="#" class="card-button">Explore Collection <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="gallery-card"
+                    style="background-image: url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1350&q=80');">
+                    <div class="card-overlay">
+                        <h3>At Work Place</h3>
+                        <p class="card-description">Sophisticated pieces that complement your professional style with
+                            elegance and grace.</p>
+                        <a href="#" class="card-button">Explore Collection <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="gallery-card"
+                    style="background-image: url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1350&q=80');">
+                    <div class="card-overlay">
+                        <h3>Family Gatherings</h3>
+                        <p class="card-description">Cherish precious moments with family wearing jewelry that tells your
+                            unique story.</p>
+                        <a href="#" class="card-button">Explore Collection <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    <section class="video-section" aria-label="Zebkar's craftsmanship video">
+        <!-- Section Heading -->
+        <header class="section-heading">
+            <h1>
+                <span class="brand">Zebkar's Promise</span>
+            </h1>
+            <div class="section-subtitle">
+                Witness Our <span>Craftsmanship</span> • Every Piece Tells a <span>Story</span>
+            </div>
+        </header>
+
+        <div class="video-inner">
+            <!-- Enhanced Media Area with Video -->
+            <div class="video-media" role="button" aria-label="Play video about our craftsmanship">
+                <div class="video-container">
+                    <!-- Video element -->
+                    <video class="hero-video" loop muted playsinline preload="metadata"
+                        poster="https://images.unsplash.com/photo-1614675109105-8b7d0f7f0eab?q=80&w=1600&auto=format&fit=crop"
+                        aria-label="Jewelry craftsmanship video showing artisans at work">
+                        <source
+                            src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-jewelry-artisan-working-40736-large.mp4"
+                            type="video/mp4">
+                        <!-- Fallback image for browsers that don't support video -->
+                        <img class="video-fallback"
+                            src="https://images.unsplash.com/photo-1614675109105-8b7d0f7f0eab?q=80&w=1600&auto=format&fit=crop"
+                            alt="Hands crafting jewelry">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <!-- Video status -->
+                <div class="video-status">Live • Crafting Now</div>
+
+                <!-- Enhanced Play Button -->
+                <span class="play-circle" aria-hidden="true">
+                    <svg viewBox="0 0 100 100" class="play-icon" xmlns="http://www.w3.org/2000/svg" focusable="false"
+                        role="img">
+                        <polygon points="40,30 70,50 40,70" fill="#ffffff" />
+                    </svg>
+                </span>
+
+                <!-- Video controls -->
+                <div class="video-controls">
+                    <button class="control-btn play-pause-btn" aria-label="Play/Pause">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="control-btn volume-btn" aria-label="Mute/Unmute">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                    <div class="volume-slider" aria-label="Volume control">
+                        <div class="volume-filled"></div>
+                    </div>
+                    <div class="video-progress" aria-label="Video progress">
+                        <div class="video-progress-filled"></div>
+                    </div>
+                    <button class="control-btn fullscreen-btn" aria-label="Fullscreen">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Enhanced Text Panel -->
+            <aside class="video-panel" aria-labelledby="panel-text">
+                <div class="panel-frame">
+                    <!-- Corner decorations -->
+                    <div class="corner-decoration corner-tl"></div>
+                    <div class="corner-decoration corner-tr"></div>
+                    <div class="corner-decoration corner-bl"></div>
+                    <div class="corner-decoration corner-br"></div>
+
+                    <p id="panel-text" class="panel-text">
+                        We promise to craft<br />
+                        <span>jewelry that reflects</span><br />
+                        who you are – your journey,<br />
+                        your milestones, your story.
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </section>
+    <section class="diamond-section" aria-label="Diamond statement">
+        <!-- Background pattern -->
+        <div class="bg-pattern" aria-hidden="true"></div>
+
+        <div class="container">
+            <div class="diamond-inner">
+                <!-- Left column: Text content -->
+                <div class="diamond-copy" role="region" aria-labelledby="diamond-heading">
+                    <h1 id="diamond-heading">
+                        It's more than just <span class="gold-arabic">زيور</span>
+                    </h1>
+
+                    <p class="diamond-sub">
+                        It is a symbol of your <span class="gold-arabic">زيب</span>'s story.
+                    </p>
+
+                    <p class="diamond-author">
+                        <i class="fas fa-pen-nib author-icon" aria-hidden="true"></i>
+                        Written by <span class="gold-arabic">زيكار</span>
+                    </p>
+
+                    <a class="cta-button" href="#" role="button" aria-label="Read our story">
+                        Read Our Story
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <!-- Right column: Diamond image -->
+                <div class="diamond-image" role="img" aria-label="Elegant diamond illustration">
+                    <div class="diamond-container">
+                        <!-- Sparkle effects -->
+                        <div class="sparkle sparkle-1" aria-hidden="true"></div>
+                        <div class="sparkle sparkle-2" aria-hidden="true"></div>
+                        <div class="sparkle sparkle-3" aria-hidden="true"></div>
+
+                        <!-- Diamond SVG -->
+                        <img src="./assets/img/svg/diamondsvg-01.svg"
+                            alt="Elegant diamond illustration with decorative sparkle effects" class="diamond-svg"
+                            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDIwIiBoZWlnaHQ9IjQyMCIgdmlld0JveD0iMCAwIDQyMCA0MjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIxMCAwTDM1MCAyMTAgMjEwIDQyMCA3MCAyMTAgMjEwIDBaIiBzdHJva2U9IiNCOUQ1QTYiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik0yMTAgMzBMMzIwIDIxMCAyMTAgMzkwIDEwMCAyMTAgMjEwIDMwWiIgc3Ryb2tlPSIjRDhDQ0EzIiBzdHJva2Utd2lkdGg9IjEuNSIvPjwvc3ZnPg=='" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonials-section">
+        <div class="testimonials-container">
+            <header class="testimonials-header">
+                <h1 class="testimonials-title">Customer Stories</h1>
+                <p class="testimonials-subtitle">
+                    Experience the <span class="arabic-highlight">زیب</span> through the eyes of those who wear our
+                    creations with pride
+                </p>
+                <div class="section-divider"></div>
+            </header>
+
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <article class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <div class="rating">★★★★★</div>
+                    <blockquote class="testimonial-quote">
+                        "Zebkar transformed my vision into reality. The attention to detail is extraordinary.
+                        Every piece feels like it was crafted just for me, carrying a story that's uniquely mine."
+                    </blockquote>
+                    <div class="author-info">
+                        <div class="author-avatar">AR</div>
+                        <div class="author-details">
+                            <div class="author-name">Ayesha Rahman</div>
+                            <div class="author-role">Custom Design Client</div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Testimonial 2 -->
+                <article class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <div class="rating">★★★★★</div>
+                    <blockquote class="testimonial-quote">
+                        "The quality surpasses anything I've owned before. Six months of daily wear and my
+                        necklace still shines like the day I received it. True heirloom craftsmanship."
+                    </blockquote>
+                    <div class="author-info">
+                        <div class="author-avatar">MS</div>
+                        <div class="author-details">
+                            <div class="author-name">Mahnoor Shah</div>
+                            <div class="author-role">Regular Customer</div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Testimonial 3 -->
+                <article class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <div class="rating">★★★★★</div>
+                    <blockquote class="testimonial-quote">
+                        "I gifted a Zebkar piece to my sister on her wedding day. The emotional value combined
+                        with impeccable craftsmanship made it the most meaningful gift I've ever given."
+                    </blockquote>
+                    <div class="author-info">
+                        <div class="author-avatar">HK</div>
+                        <div class="author-details">
+                            <div class="author-name">Hina Khan</div>
+                            <div class="author-role">Since 2021</div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <footer class="testimonials-cta">
+                <a href="#" class="cta-button">Share Your Experience</a>
+            </footer>
+        </div>
+    </section>
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+            <!-- Left column: Logo and social -->
+            <div class="footer-left">
+                <a href="#" class="footer-logo">
+                    <img src="./assets/img/zebkar.31-01-03.png" alt="Zebkar Logo" width="160" height="auto">
+                </a>
+
+                <p class="footer-tagline">
+                    Crafting timeless jewelry pieces that tell your unique story. Experience the perfect blend of
+                    tradition and contemporary design.
+                </p>
+
+                <div class="social-section">
+                    <h3 class="social-title">Connect With Us</h3>
+                    <div class="social-icons" aria-label="Social media links">
+                        <a href="#" class="social-link" aria-label="Follow us on TikTok" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+
+                        <a href="#" class="social-link" aria-label="Follow us on Facebook" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#" class="social-link" aria-label="Follow us on Instagram" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="#" class="social-link" aria-label="Follow us on Pinterest" title="Pinterest">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle column: Navigation links -->
+            <div class="footer-links">
+                <h3 class="links-title">Quick Links</h3>
+                <ul class="links-list">
+                    <li><a href="#" aria-label="Home page">Home</a></li>
+                    <li><a href="#" aria-label="Browse our collections">Shop</a></li>
+                    <li><a href="#" aria-label="Information for buyers">Gifting</a></li>
+                    <li><a href="#" aria-label="Information for sellers">Our Story</a></li>
+                    <li><a href="#" aria-label="Meet our team">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Right column: Contact information -->
+            <div class="footer-contact">
+                <h3 class="contact-title">Contact Us</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-phone contact-icon"></i>
+                        <span class="contact-text">
+                            <strong>Phone:</strong><br>
+                            +92 123456789
+                        </span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <span class="contact-text">
+                            <strong>Email:</strong><br>
+                            info@zebkar.com
+                        </span>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <span class="contact-text">
+                            <strong>Address:</strong><br>
+                            123 Street, Multan, Pakistan
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom">
+            <p class="copyright">
+                &copy; 2026 Zebkar Jewelry. All rights reserved.
+            </p>
+            <div class="legal-links">
+                <a href="#" aria-label="Privacy policy">Privacy Policy</a>
+                <a href="#" aria-label="Terms of service">Terms of Service</a>
+                <a href="#" aria-label="Cookie policy">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script src="./assets/js/script.js"></script>
+
+</html>

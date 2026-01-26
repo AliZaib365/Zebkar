@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1080 1350">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#drop-shadow-1);
+      }
+
+      .cls-2 {
+        fill: #0c0c0c;
+        stroke: #a58b5c;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+    </style>
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2"/>
+      <feGaussianBlur result="blur" stdDeviation="5"/>
+      <feFlood flood-color="#000" flood-opacity=".75"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g class="cls-1">
+    <path class="cls-2" d="M503.4,952.04l-131.99-422.38h-191.16c107.72,140.79,215.44,281.59,323.16,422.38Z"/>
+    <path class="cls-2" d="M576.22,952.04l131.99-422.38c63.72,0,127.44,0,191.16,0-107.72,140.79-215.44,281.59-323.16,422.38Z"/>
+    <path class="cls-2" d="M539.81,975.91l-141.69-446.25h288.25c-48.85,148.75-97.71,297.5-146.56,446.25Z"/>
+    <path class="cls-2" d="M357.75,504.17h-175.69c34.29-40.96,68.58-81.93,102.86-122.89,24.27,40.96,48.55,81.93,72.82,122.89Z"/>
+    <path class="cls-2" d="M898.47,504.17h-179.33c25.19-41.27,50.37-82.53,75.56-123.8,34.59,41.27,69.18,82.53,103.78,123.8Z"/>
+    <polygon class="cls-2" points="383.24 495.07 310.41 371.27 506.03 371.27 383.24 495.07"/>
+    <polygon class="cls-2" points="413.63 504.17 666.9 504.17 539.81 376.22 413.63 504.17"/>
+    <polygon class="cls-2" points="696.95 495.07 571.71 371.27 768.48 371.27 696.95 495.07"/>
+  </g>
+</svg>

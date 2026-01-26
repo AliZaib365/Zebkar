@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Gray & Golden Mail Envelope</title>
+    <link rel="stylesheet" href="./css/letter.css">
+</head>
+
+<body>
+
+    <div class="envelope" onclick="togglePacket()">
+        <div class="stamp"></div>
+        
+        <div class="content">
+            <h2>📬 You've Got Mail!</h2>
+            <p>Welcome to the sophisticated dark gray and golden mail envelope with a centered stamp design. Experience the elegance of this premium color scheme.</p>
+            <p>Click again to close this luxurious mail packet.</p>
+        </div>
+
+        <div class="flap top"></div>
+        <div class="flap bottom"></div>
+        <div class="flap left"></div>
+        <div class="flap right"></div>
+    </div>
+
+    <script>
+        function togglePacket() {
+            document.querySelector(".envelope")
+                .classList.toggle("open");
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Zebkar Jewelry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="./assets/css/style.css">
+  
+</head>
+<body>
+    <!-- 1. OFFER STRIP (Topmost) -->
+    <div class="offer-strip">
+        ENJOY 10% OFF ON YOUR FIRST ORDER
+    </div>
+
+    <!-- 2. HEADER (Fixed & Sticky) -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="nav-section left">
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="main-nav" aria-label="Main Navigation">
+                    <ul>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/shop.html">Shop</a></li>
+                        <li><a href="/gift.html">Gifting</a></li>
+                        <li><a href="/our-story.html">Our Story</a></li>
+                        <li><a href="./contact-us.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="logo-container">
+                <img class="logo" src="./assets/img/zebkar.31-01-03.png" alt="Zebkar - Premium Jewelry & Diamonds">
+            </div>
+
+            <div class="nav-section right">
+                <div class="header-icons">
+                    <div class="search-container">
+                        <button class="icon-btn search-trigger" aria-label="Search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    <button class="icon-btn cart-btn" aria-label="Shopping Cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-badge">3</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <button class="close-menu" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <nav class="mobile-nav" aria-label="Mobile Navigation">
+            <a href="/index.html">Home</a>
+            <a href="/shop.html">Shop</a>
+            <a href="/gift.html">Gifting</a>
+            <a href="./our-story.html">Our Story</a>
+            <a href="./contact-us.html">Contact</a>
+        </nav>
+    </div>
+
+    
+    <!-- Gift Popup Overlay -->
+    <div class="gift-popup-overlay" id="giftPopupOverlay">
+        <div class="gift-popup">
+            <div class="popup-header">
+                <h3><i class="fas fa-gift gift-icon"></i> Add Gift Details</h3>
+                <button class="close-popup" id="closeGiftPopup" aria-label="Close popup">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="popup-content">
+                <!-- Product info will be dynamically inserted here -->
+                <div id="popupProductInfo"></div>
+                
+                <div class="gift-form-group">
+                    <label for="recipientName">Recipient's Name <span style="color: #e74c3c;">*</span></label>
+                    <input type="text" id="recipientName" placeholder="Enter recipient's full name" required>
+                </div>
+                
+                <div class="gift-form-group">
+                    <label for="giftNote">Personalized Gift Message (Optional)</label>
+                    <textarea id="giftNote" placeholder="Write a special message for the recipient..."></textarea>
+                </div>
+                
+                <div class="address-toggle">
+                    <input type="checkbox" id="sameAddress" checked>
+                    <label for="sameAddress">Send to billing address</label>
+                </div>
+                
+                <div class="address-options" id="addressOptions">
+                    <div class="gift-form-group">
+                        <label for="giftAddress">Gift Shipping Address <span style="color: #e74c3c;">*</span></label>
+                        <input type="text" id="giftAddress" placeholder="Enter shipping address">
+                    </div>
+                    
+                    <div class="gift-form-group">
+                        <label for="giftCity">City <span style="color: #e74c3c;">*</span></label>
+                        <input type="text" id="giftCity" placeholder="Enter city">
+                    </div>
+                    
+                    <div class="gift-form-group">
+                        <label for="giftPostalCode">Postal Code <span style="color: #e74c3c;">*</span></label>
+                        <input type="text" id="giftPostalCode" placeholder="Enter postal code">
+                    </div>
+                </div>
+                
+                <div class="gift-note-preview" id="giftNotePreview">
+                    <h4>Gift Note Preview:</h4>
+                    <p id="previewText">Your message will appear here...</p>
+                </div>
+                
+                <div class="popup-buttons">
+                    <button class="popup-btn cancel" id="cancelGiftDetails">Cancel</button>
+                    <button class="popup-btn save" id="saveGiftDetails">Save Gift Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="checkout-container">
+        <!-- Header -->
+        <header class="checkout-header">
+            <h1 class="checkout-title">Complete Your Purchase</h1>
+            <p class="checkout-subtitle">Secure checkout with 256-bit encryption</p>
+        </header>
+
+        <!-- Progress Steps -->
+        <div class="progress-steps">
+            <div class="step completed">
+                <div class="step-number">1</div>
+                <span>Cart</span>
+            </div>
+            <span>›</span>
+            <div class="step completed">
+                <div class="step-number">2</div>
+                <span>Details</span>
+            </div>
+            <span>›</span>
+            <div class="step active">
+                <div class="step-number">3</div>
+                <span>Payment</span>
+            </div>
+            <span>›</span>
+            <div class="step">
+                <div class="step-number">4</div>
+                <span>Confirm</span>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="checkout-main">
+            <!-- Left: Form -->
+            <div class="checkout-form">
+                <!-- Contact Info -->
+                <section class="form-section">
+                    <h2 class="section-title">Contact Information</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-input" placeholder="John" >
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" class="form-input" placeholder="Doe" >
+                        </div>
+                        <div class="form-group form-row">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input" placeholder="john@example.com" >
+                        </div>
+                        <div class="form-group form-row">
+                            <label class="form-label">Phone</label>
+                            <input type="tel" class="form-input" placeholder="+1234567890" >
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Shipping Address -->
+                <section class="form-section">
+                    <h2 class="section-title">Shipping Address</h2>
+                    <div class="form-grid">
+                        <div class="form-group form-row">
+                            <label class="form-label">Address</label>
+                            <input type="text" class="form-input" placeholder="123 Main Street" >
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">City</label>
+                            <input type="text" class="form-input" placeholder="New York" >
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Postal Code</label>
+                            <input type="text" class="form-input" placeholder="10001" >
+                        </div>
+                        <div class="form-group form-row">
+                            <label class="form-label">Country</label>
+                            <select class="form-input" required>
+                                <option value="">Select Country</option>
+                                <option selected>United States</option>
+                                <option>Canada</option>
+                                <option>United Kingdom</option>
+                                <option>United Arab Emirates</option>
+                                <option>Pakistan</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Payment Method -->
+                <section class="form-section">
+                    <h2 class="section-title">Payment Method</h2>
+                    <div class="payment-options">
+                        <div class="payment-option active">
+                            <i class="fas fa-credit-card payment-icon"></i>
+                            <span>Credit/Debit Card</span>
+                        </div>
+                        <div class="payment-option">
+                            <i class="fab fa-paypal payment-icon"></i>
+                            <span>PayPal</span>
+                        </div>
+                        <div class="payment-option">
+                            <i class="fas fa-money-bill payment-icon"></i>
+                            <span>Cash on Delivery</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Card Details -->
+                    <div class="form-grid" style="margin-top: 20px;">
+                        <div class="form-group form-row">
+                            <label class="form-label">Card Number</label>
+                            <input type="text" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Expiry Date</label>
+                            <input type="text" class="form-input" placeholder="MM/YY" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">CVV</label>
+                            <input type="text" class="form-input" placeholder="123" maxlength="4">
+                        </div>
+                        <div class="form-group form-row">
+                            <label class="form-label">Cardholder Name</label>
+                            <input type="text" class="form-input" placeholder="JOHN DOE">
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right: Order Summary -->
+            <div class="checkout-summary">
+                <!-- Gift Checkbox Section -->
+                <div style="display: none;" class="gift-section">
+                    <div class="gift-checkbox">
+                        <input type="checkbox" id="isGiftCheckbox">
+                        <i class="fas fa-gift gift-icon"></i>
+                        <label for="isGiftCheckbox">This is a gift</label>
+                    </div>
+                </div>
+                
+                <div class="order-summary">
+                    <h2 class="summary-title">Order Summary</h2>
+                    
+                    <!-- Order Items -->
+                    <div class="order-items">
+                        <div class="order-item">
+                            <img src="https://images.unsplash.com/photo-1594576721254-f3f2a8c56bde?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                 alt="Diamond Ring" class="item-image">
+                            <div class="item-details">
+                                <div class="item-name">Eternal Diamond Ring</div>
+                                <div class="item-category">Size: 7 • Qty: 1</div>
+                                <div class="item-price">$1,299.99</div>
+                                <!-- Product-specific gift checkbox -->
+                                <div class="product-gift-option">
+                                    <div class="product-gift-checkbox" data-product-id="1">
+                                        <input type="checkbox" id="giftProduct1" class="product-gift-checkbox-input">
+                                        <i class="fas fa-gift product-gift-icon"></i>
+                                        <label for="giftProduct1">Add gift details for this item</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="order-item">
+                            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                 alt="Pearl Necklace" class="item-image">
+                            <div class="item-details">
+                                <div class="item-name">Golden Pearl Necklace</div>
+                                <div class="item-category">18K Gold • Qty: 1</div>
+                                <div class="item-price">$899.99</div>
+                                <!-- Product-specific gift checkbox -->
+                                <div class="product-gift-option">
+                                    <div class="product-gift-checkbox" data-product-id="2">
+                                        <input type="checkbox" id="giftProduct2" class="product-gift-checkbox-input">
+                                        <i class="fas fa-gift product-gift-icon"></i>
+                                        <label for="giftProduct2">Add gift details for this item</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Totals -->
+                    <div class="order-totals">
+                        <div class="total-row">
+                            <span class="total-label">Subtotal</span>
+                            <span class="total-value">$2,199.98</span>
+                        </div>
+                        <div class="total-row">
+                            <span class="total-label">Shipping</span>
+                            <span class="total-value" style="color: #4caf50;">FREE</span>
+                        </div>
+                        <div class="total-row">
+                            <span class="total-label">Tax</span>
+                            <span class="total-value">$220.00</span>
+                        </div>
+                        <div class="total-row grand-total">
+                            <span class="total-label">Total</span>
+                            <span class="total-value">$2,419.98</span>
+                        </div>
+                    </div>
+
+                    <!-- Security Badge -->
+                    <div class="security-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Payment</span>
+                    </div>
+
+                    <!-- Checkout Button -->
+                    <button class="checkout-btn" id="completeOrderBtn">
+                        Complete Order - $2,419.98
+                    </button>
+
+                    <p class="helper-text">
+                        By completing your order, you agree to our Terms & Privacy Policy
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+ <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+            <!-- Left column: Logo and social -->
+            <div class="footer-left">
+                <a href="#" class="footer-logo">
+                    <img src="./assets/img/zebkar.31-01-03.png" alt="Zebkar Logo" width="160" height="auto">
+                </a>
+
+                <p class="footer-tagline">
+                    Crafting timeless jewelry pieces that tell your unique story. Experience the perfect blend of
+                    tradition and contemporary design.
+                </p>
+
+                <div class="social-section">
+                    <h3 class="social-title">Connect With Us</h3>
+                    <div class="social-icons" aria-label="Social media links">
+                        <a href="#" class="social-link" aria-label="Follow us on TikTok" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+
+                        <a href="#" class="social-link" aria-label="Follow us on Facebook" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#" class="social-link" aria-label="Follow us on Instagram" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="#" class="social-link" aria-label="Follow us on Pinterest" title="Pinterest">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle column: Navigation links -->
+            <div class="footer-links">
+                <h3 class="links-title">Quick Links</h3>
+                <ul class="links-list">
+                    <li><a href="#" aria-label="Home page">Home</a></li>
+                    <li><a href="#" aria-label="Browse our collections">Shop</a></li>
+                    <li><a href="#" aria-label="Information for buyers">Gifting</a></li>
+                    <li><a href="#" aria-label="Information for sellers">Our Story</a></li>
+                    <li><a href="#" aria-label="Meet our team">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Right column: Contact information -->
+            <div class="footer-contact">
+                <h3 class="contact-title">Contact Us</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-phone contact-icon"></i>
+                        <span class="contact-text">
+                            <strong>Phone:</strong><br>
+                            +92 123456789
+                        </span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <span class="contact-text">
+                            <strong>Email:</strong><br>
+                            info@zebkar.com
+                        </span>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <span class="contact-text">
+                            <strong>Address:</strong><br>
+                            123 Street, Multan, Pakistan
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom">
+            <p class="copyright">
+                &copy; 2026 Zebkar Jewelry. All rights reserved.
+            </p>
+            <div class="legal-links">
+                <a href="#" aria-label="Privacy policy">Privacy Policy</a>
+                <a href="#" aria-label="Terms of service">Terms of Service</a>
+                <a href="#" aria-label="Cookie policy">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+   <script src="./assets/js/script.js"></script>
+    
+</body>
+</html>

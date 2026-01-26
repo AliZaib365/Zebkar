@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zebkar | Premium Jewelry Collection</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <!-- 1. OFFER STRIP (Topmost) -->
+    <div class="offer-strip">
+        ENJOY 10% OFF ON YOUR FIRST ORDER
+    </div>
+
+    <!-- 2. HEADER (Fixed & Sticky) -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="nav-section left">
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="main-nav" aria-label="Main Navigation">
+                    <ul>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/shop.html">Shop</a></li>
+                        <li><a href="/gift.html">Gifting</a></li>
+                        <li><a href="/our-story.html">Our Story</a></li>
+                        <li><a href="./contact-us.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="logo-container">
+                <img class="logo" src="./assets/img/zebkar.31-01-03.png" alt="Zebkar - Premium Jewelry & Diamonds">
+            </div>
+
+            <div class="nav-section right">
+                <div class="header-icons">
+                    <div class="search-container">
+                        <button class="icon-btn search-trigger" aria-label="Search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    <button class="icon-btn cart-btn" aria-label="Shopping Cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-badge">3</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <button class="close-menu" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <nav class="mobile-nav" aria-label="Mobile Navigation">
+            <a href="/index.html">Home</a>
+            <a href="/shop.html">Shop</a>
+            <a href="/gift.html">Gifting</a>
+            <a href="./our-story.html">Our Story</a>
+            <a href="./contact-us.html">Contact</a>
+        </nav>
+    </div>
+
+<section class="shop">
+    <section class="shop-hero">
+        <!-- Background Image using IMG tag -->
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80"
+            alt="Luxury Jewelry Background" class="hero-bg-image">
+
+        <!-- Gradient Overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- Animated Floating Particles -->
+        <div class="floating-particles" id="particles"></div>
+
+        <!-- Hero Content -->
+        <div class="hero-content1">
+            <p class="hero-subtitle1 text-wrap">زیب that feels like you</p>
+            <div class="hero-cta1">
+                <button class="cta-btn1 primary" id="exploreBtn">
+                    <i class="fas fa-gem"></i> Explore Collection
+                </button>
+                <button class="cta-btn1 outline" id="newArrivalsBtn">
+                    <i class="fas fa-star"></i> New Arrivals
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Controls -->
+    <section class="shop-controls">
+        <div class="controls-container">
+            <div class="filter-section">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-gem"></i> All
+                </button>
+                <button class="filter-btn" data-filter="rings">
+                    <i class="fas fa-ring"></i> Rings
+                </button>
+                <button class="filter-btn" data-filter="necklaces">
+                    <i class="fas fa-gem"></i> Necklaces
+                </button>
+                <button class="filter-btn" data-filter="bracelets">
+                    <i class="fas fa-bracelet"></i> Bracelets
+                </button>
+                <button class="filter-btn" data-filter="earrings">
+                    <i class="fas fa-earring"></i> Earrings
+                </button>
+                <button class="filter-btn" data-filter="watches">
+                    <i class="fas fa-clock"></i> Watches
+                </button>
+            </div>
+
+            <div class="sort-section">
+                <select class="sort-select" aria-label="Sort products" id="sortSelect">
+                    <option value="featured">Featured</option>
+                    <option value="newest">Newest Arrivals</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="popular">Most Popular</option>
+                </select>
+                <div class="sort-arrow">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Grid -->
+    <section class="shop-grid-section">
+        <div class="shop-grid" id="productGrid">
+            <!-- Product cards will be generated by JavaScript -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="page-btn disabled">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <span class="page-dots">...</span>
+            <button class="page-btn">8</button>
+            <button class="page-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Quick View Modal -->
+    <div class="quick-view-modal" id="quickViewModal">
+        <div class="modal-content">
+            <!-- Modal content will be filled by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Cart Notification -->
+    <div class="cart-notification" id="cartNotification">
+        <i class="fas fa-check-circle" style="color: #e0c98f; font-size: 1.5rem;"></i>
+        <div>
+            <p style="font-weight: 500;">Added to cart successfully!</p>
+            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">View your cart to proceed</p>
+        </div>
+    </div>
+    </section>
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+            <!-- Left column: Logo and social -->
+            <div class="footer-left">
+                <a href="#" class="footer-logo">
+                    <img src="./assets/img/zebkar.31-01-03.png" alt="Zebkar Logo" width="160" height="auto">
+                </a>
+
+                <p class="footer-tagline">
+                    Crafting timeless jewelry pieces that tell your unique story. Experience the perfect blend of
+                    tradition and contemporary design.
+                </p>
+
+                <div class="social-section">
+                    <h3 class="social-title">Connect With Us</h3>
+                    <div class="social-icons" aria-label="Social media links">
+                        <a href="#" class="social-link" aria-label="Follow us on TikTok" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+
+                        <a href="#" class="social-link" aria-label="Follow us on Facebook" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#" class="social-link" aria-label="Follow us on Instagram" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="#" class="social-link" aria-label="Follow us on Pinterest" title="Pinterest">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle column: Navigation links -->
+            <div class="footer-links">
+                <h3 class="links-title">Quick Links</h3>
+                <ul class="links-list">
+                    <li><a href="#" aria-label="Home page">Home</a></li>
+                    <li><a href="#" aria-label="Browse our collections">Shop</a></li>
+                    <li><a href="#" aria-label="Information for buyers">Gifting</a></li>
+                    <li><a href="#" aria-label="Information for sellers">Our Story</a></li>
+                    <li><a href="#" aria-label="Meet our team">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Right column: Contact information -->
+            <div class="footer-contact">
+                <h3 class="contact-title">Contact Us</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-phone contact-icon"></i>
+                        <span class="contact-text">
+                            <strong>Phone:</strong><br>
+                            +92 123456789
+                        </span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <span class="contact-text">
+                            <strong>Email:</strong><br>
+                            info@zebkar.com
+                        </span>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <span class="contact-text">
+                            <strong>Address:</strong><br>
+                            123 Street, Multan, Pakistan
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom">
+            <p class="copyright">
+                &copy; 2026 Zebkar Jewelry. All rights reserved.
+            </p>
+            <div class="legal-links">
+                <a href="#" aria-label="Privacy policy">Privacy Policy</a>
+                <a href="#" aria-label="Terms of service">Terms of Service</a>
+                <a href="#" aria-label="Cookie policy">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zebkar - Traditional Gold Necklace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+  
+</head>
+<body>
+    <!-- Your existing HTML structure remains the same -->
+    <!-- 1. OFFER STRIP (Topmost) -->
+    <div class="offer-strip">
+        ENJOY 10% OFF ON YOUR FIRST ORDER
+    </div>
+
+    <!-- 2. HEADER (Fixed & Sticky) -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="nav-section left">
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="main-nav" aria-label="Main Navigation">
+                    <ul>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/shop.html">Shop</a></li>
+                        <li><a href="/gift.html">Gifting</a></li>
+                        <li><a href="/our-story.html">Our Story</a></li>
+                        <li><a href="./contact-us.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="logo-container">
+                <img class="logo" src="./assets/img/zebkar.31-01-03.png" alt="Zebkar - Premium Jewelry & Diamonds">
+            </div>
+
+            <div class="nav-section right">
+                <div class="header-icons">
+                    <div class="search-container">
+                        <button class="icon-btn search-trigger" aria-label="Search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    <button class="icon-btn cart-btn" aria-label="Shopping Cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-badge">3</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <button class="close-menu" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <nav class="mobile-nav" aria-label="Mobile Navigation">
+            <a href="/index.html">Home</a>
+            <a href="/shop.html">Shop</a>
+            <a href="/gift.html">Gifting</a>
+            <a href="./our-story.html">Our Story</a>
+            <a href="./contact-us.html">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Main Product Section -->
+    <main class="product-main" role="main">
+        <div class="sigle-product-container">
+            <div class="product-layout">
+                <!-- Left Column - Images with Daraz-style Zoom -->
+                <div class="product-images-column">
+                    <!-- Main Image with Zoom Lens -->
+                    <div class="main-image-container" id="mainImageContainer">
+                        <img src="" 
+                             alt="Traditional Gold Necklace"
+                             id="mainImage">
+                        <div class="zoom-lens" id="zoomLens"></div>
+                    </div>
+                    
+                    <!-- Daraz-style Zoom Window (POSITIONED OUTSIDE) -->
+                    <div class="zoom-window" id="zoomWindow">
+                        <img src="" alt="Zoomed View" id="zoomedImage">
+                    </div>
+
+                    <!-- Image Strip -->
+                    <div class="image-strip" id="imageStrip">
+                        <!-- Images will be populated by JavaScript -->
+                    </div>
+
+                    <!-- Product Details Section -->
+                    <div class="product-details-section">
+                        <h2 class="section-title">Product Details</h2>
+                        
+                        <div class="product-description" id="productDescription">
+                            <!-- Description will be populated by JavaScript -->
+                        </div>
+
+                        <div class="features-grid" id="featuresGrid">
+                            <!-- Features will be populated by JavaScript -->
+                        </div>
+
+                        <h2 class="section-title">Specifications</h2>
+                        
+                        <table class="specifications-table" id="specificationsTable">
+                            <!-- Specifications will be populated by JavaScript -->
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Right Column - Purchase Info -->
+                <div class="purchase-info-column">
+                    <h1 class="product-title" id="productTitle">Traditional Gold Necklace with Emerald Stones</h1>
+                    
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="rating-count" id="ratingCount">4.7 (48 Reviews)</span>
+                    </div>
+
+                    <div class="product-price">
+                        <div class="current-price" id="currentPrice">$1,850.00</div>
+                        <div>
+                            <span class="original-price" id="originalPrice">$2,150.00</span>
+                            <span class="discount" id="discountPercent">14% OFF</span>
+                        </div>
+                    </div>
+
+                    <div class="stock-status">
+                        <div class="stock-dot"></div>
+                        <span class="stock-text" id="stockText">In Stock • Ready to Ship</span>
+                    </div>
+
+                    <!-- Customization Options -->
+                    <div class="customization-options">
+                        <h3 class="option-title">Select Chain Length</h3>
+                        <div class="options-grid" id="variantsGrid">
+                            <!-- Variants will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Quantity Selector -->
+                    <div class="quantity-selector">
+                        <span class="qty-label">Quantity:</span>
+                        <div class="qty-controls">
+                            <button class="qty-btn" id="decreaseQty" aria-label="Decrease quantity">-</button>
+                            <input type="number" class="qty-input" id="quantity" value="1" min="1" max="10" aria-label="Quantity">
+                            <button class="qty-btn" id="increaseQty" aria-label="Increase quantity">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                       
+                        <button class="buy-now" id="buyNow" aria-label="Buy now">
+                            <i class="fas fa-bolt"></i> Pre-Order
+                        </button>
+                    </div>
+
+                    <!-- Delivery Information -->
+                    <div class="delivery-info">
+                        <h3 class="delivery-title">Delivery Information</h3>
+                        
+                        <div class="delivery-item">
+                            <div class="delivery-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <div class="delivery-text">
+                                <strong>Standard:</strong> 5-7 days
+                                <span class="delivery-cost">$12.00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="delivery-item">
+                            <div class="delivery-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="delivery-text">
+                                <strong>Express:</strong> 2-3 days
+                                <span class="delivery-cost">$25.00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="delivery-item">
+                            <div class="delivery-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <div class="delivery-text">
+                                <strong>Premium:</strong> Next day
+                                <span class="delivery-cost">$40.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Related Products -->
+    <section class="related-products" aria-label="Related products">
+        <div class="container">
+            <h2 class="section-title">You May Also Like</h2>
+            
+            <div class="products-grid" id="relatedProductsGrid">
+                <!-- Related products will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+ <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+            <!-- Left column: Logo and social -->
+            <div class="footer-left">
+                <a href="#" class="footer-logo">
+                    <img src="./assets/img/zebkar.31-01-03.png" alt="Zebkar Logo" width="160" height="auto">
+                </a>
+
+                <p class="footer-tagline">
+                    Crafting timeless jewelry pieces that tell your unique story. Experience the perfect blend of
+                    tradition and contemporary design.
+                </p>
+
+                <div class="social-section">
+                    <h3 class="social-title">Connect With Us</h3>
+                    <div class="social-icons" aria-label="Social media links">
+                        <a href="#" class="social-link" aria-label="Follow us on TikTok" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+
+                        <a href="#" class="social-link" aria-label="Follow us on Facebook" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#" class="social-link" aria-label="Follow us on Instagram" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="#" class="social-link" aria-label="Follow us on Pinterest" title="Pinterest">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle column: Navigation links -->
+            <div class="footer-links">
+                <h3 class="links-title">Quick Links</h3>
+                <ul class="links-list">
+                    <li><a href="#" aria-label="Home page">Home</a></li>
+                    <li><a href="#" aria-label="Browse our collections">Shop</a></li>
+                    <li><a href="#" aria-label="Information for buyers">Gifting</a></li>
+                    <li><a href="#" aria-label="Information for sellers">Our Story</a></li>
+                    <li><a href="#" aria-label="Meet our team">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Right column: Contact information -->
+            <div class="footer-contact">
+                <h3 class="contact-title">Contact Us</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-phone contact-icon"></i>
+                        <span class="contact-text">
+                            <strong>Phone:</strong><br>
+                            +92 123456789
+                        </span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <span class="contact-text">
+                            <strong>Email:</strong><br>
+                            info@zebkar.com
+                        </span>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <span class="contact-text">
+                            <strong>Address:</strong><br>
+                            123 Street, Multan, Pakistan
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom">
+            <p class="copyright">
+                &copy; 2026 Zebkar Jewelry. All rights reserved.
+            </p>
+            <div class="legal-links">
+                <a href="#" aria-label="Privacy policy">Privacy Policy</a>
+                <a href="#" aria-label="Terms of service">Terms of Service</a>
+                <a href="#" aria-label="Cookie policy">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // UPDATED DUMMY BACKEND DATA (Expanded)
+        // ============================================
+        const productData = {
+            productId: "PROD-001",
+            sku: "ZK-GN-24K-001",
+            name: "Traditional Gold Necklace with Emerald Stones",
+            description: "This exquisite traditional necklace features intricate gold craftsmanship adorned with genuine emerald stones. Handcrafted by our master artisans, each piece tells a story of heritage and timeless beauty. Perfect for weddings, special occasions, or as a family heirloom.",
+            basePrice: 1850.00,
+            originalPrice: 2150.00,
+            discountPercent: 14,
+            currency: "USD",
+            inStock: true,
+            stockQuantity: 25,
+            rating: 4.7,
+            reviewCount: 48,
+            variants: [
+                { id: "VAR-001", name: "18 Inches", price: 1850.00, sku: "ZK-GN-18" },
+                { id: "VAR-002", name: "20 Inches", price: 1900.00, sku: "ZK-GN-20" },
+                { id: "VAR-003", name: "22 Inches", price: 1950.00, sku: "ZK-GN-22" }
+            ],
+            images: [
+                {
+                    id: "IMG-001",
+                    url: "./assets/img/34.jpeg",
+                    thumbnail: "./assets/img/34.jpeg",
+                    zoomUrl: "./assets/img/34.jpeg",
+                    alt: "Front View"
+                },
+                {
+                    id: "IMG-002",
+                    url: "./assets/img/11.jpeg",
+                    thumbnail: "./assets/img/11.jpeg",
+                    zoomUrl: "./assets/img/11.jpeg",
+                    alt: "Side View"
+                },
+                {
+                    id: "IMG-003",
+                    url: "./assets/img/34.jpeg",
+                    thumbnail: "./assets/img/34.jpeg",
+                    zoomUrl: "./assets/img/34.jpeg",
+                    alt: "Close Up"
+                },
+                {
+                    id: "IMG-004",
+                    url: "./assets/img/11.jpeg",
+                    thumbnail: "./assets/img/11.jpeg",
+                    zoomUrl: "./assets/img/11.jpeg",
+                    alt: "On Model"
+                },
+                {
+                    id: "IMG-005",
+                    url: "./assets/img/34.jpeg",
+                    thumbnail: "./assets/img/34.jpeg",
+                    zoomUrl: "./assets/img/34.jpeg",
+                    alt: "Packaging"
+                }
+            ],
+            features: [
+                {
+                    title: "Premium Materials",
+                    description: "24K gold with genuine emerald stones, each hand-selected for quality.",
+                    icon: "✦"
+                },
+                {
+                    title: "Artisanal Craftsmanship",
+                    description: "Handcrafted using traditional techniques passed down through generations.",
+                    icon: "✦"
+                },
+                {
+                    title: "Custom Fit",
+                    description: "Adjustable length from 18\" to 22\" with secure clasp.",
+                    icon: "✦"
+                }
+            ],
+            specifications: {
+                "Material": "24K Gold with Genuine Emerald Stones",
+                "Chain Length": "Adjustable (18\" - 22\")",
+                "Weight": "45 grams",
+                "Clasp Type": "Secure Lobster Clasp",
+                "Purity": "Hallmarked 24K (999 Fine Gold)",
+                "Warranty": "Lifetime Warranty"
+            },
+            relatedProducts: [
+                {
+                    id: "REL-001",
+                    name: "Traditional Gold Earrings",
+                    price: 650.00,
+                    image: "./assets/img/11.jpeg",
+                    alt: "Traditional Gold Earrings"
+                },
+                {
+                    id: "REL-002",
+                    name: "Diamond Bracelet",
+                    price: 1250.00,
+                    image: "./assets/img/34.jpeg",
+                    alt: "Diamond Bracelet"
+                },
+                {
+                    id: "REL-003",
+                    name: "Ruby & Gold Ring",
+                    price: 450.00,
+                    image: "./assets/img/11.jpeg",
+                    alt: "Ruby & Gold Ring"
+                }
+            ]
+        };
+
+        // ============================================
+        // DATA POPULATION FUNCTIONS
+        // ============================================
+        class DataPopulator {
+            static populateProductData() {
+                // Populate product title
+                document.getElementById('productTitle').textContent = productData.name;
+                
+                // Populate rating
+                document.getElementById('ratingCount').textContent = 
+                    `${productData.rating} (${productData.reviewCount} Reviews)`;
+                
+                // Populate prices
+                document.getElementById('currentPrice').textContent = 
+                    `$${productData.basePrice.toFixed(2)}`;
+                document.getElementById('originalPrice').textContent = 
+                    `$${productData.originalPrice.toFixed(2)}`;
+                document.getElementById('discountPercent').textContent = 
+                    `${productData.discountPercent}% OFF`;
+                
+                // Populate stock status
+                const stockText = document.getElementById('stockText');
+                stockText.textContent = productData.inStock ? 
+                    `In Stock • ${productData.stockQuantity} available` : 
+                    'Out of Stock';
+                
+                // Populate variants
+                this.populateVariants();
+                
+                // Populate images
+                this.populateImages();
+                
+                // Populate product details
+                this.populateProductDetails();
+                
+                // Populate related products
+                this.populateRelatedProducts();
+            }
+            
+            static populateVariants() {
+                const variantsGrid = document.getElementById('variantsGrid');
+                variantsGrid.innerHTML = '';
+                
+                productData.variants.forEach((variant, index) => {
+                    const button = document.createElement('div');
+                    button.className = `option-btn ${index === 0 ? 'active' : ''}`;
+                    button.textContent = variant.name;
+                    button.setAttribute('data-price', variant.price.toFixed(2));
+                    button.setAttribute('data-variant-id', variant.id);
+                    variantsGrid.appendChild(button);
+                });
+            }
+            
+            static populateImages() {
+                const imageStrip = document.getElementById('imageStrip');
+                imageStrip.innerHTML = '';
+                
+                productData.images.forEach((image, index) => {
+                    const thumbDiv = document.createElement('div');
+                    thumbDiv.className = `thumb-image ${index === 0 ? 'active' : ''}`;
+                    thumbDiv.setAttribute('data-image', image.url);
+                    thumbDiv.setAttribute('data-zoom', image.zoomUrl);
+                    thumbDiv.setAttribute('data-alt', image.alt);
+                    
+                    const thumbImg = document.createElement('img');
+                    thumbImg.src = image.thumbnail;
+                    thumbImg.alt = image.alt;
+                    thumbImg.loading = "lazy";
+                    
+                    thumbDiv.appendChild(thumbImg);
+                    imageStrip.appendChild(thumbDiv);
+                });
+                
+                // Set initial main image
+                if (productData.images.length > 0) {
+                    const mainImage = document.getElementById('mainImage');
+                    const zoomedImage = document.getElementById('zoomedImage');
+                    mainImage.src = productData.images[0].url;
+                    mainImage.alt = productData.images[0].alt;
+                    zoomedImage.src = productData.images[0].zoomUrl;
+                    zoomedImage.alt = `${productData.images[0].alt} - Zoomed`;
+                }
+            }
+            
+            static populateProductDetails() {
+                // Populate description
+                document.getElementById('productDescription').textContent = productData.description;
+                
+                // Populate features
+                const featuresGrid = document.getElementById('featuresGrid');
+                featuresGrid.innerHTML = '';
+                
+                productData.features.forEach(feature => {
+                    const featureCard = document.createElement('div');
+                    featureCard.className = 'feature-card';
+                    
+                    featureCard.innerHTML = `
+                        <div class="feature-icon">${feature.icon}</div>
+                        <h3 class="feature-title">${feature.title}</h3>
+                        <p class="feature-description">${feature.description}</p>
+                    `;
+                    
+                    featuresGrid.appendChild(featureCard);
+                });
+                
+                // Populate specifications table
+                const specsTable = document.getElementById('specificationsTable');
+                specsTable.innerHTML = '';
+                
+                Object.entries(productData.specifications).forEach(([key, value]) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${key}</td>
+                        <td>${value}</td>
+                    `;
+                    specsTable.appendChild(row);
+                });
+            }
+            
+            static populateRelatedProducts() {
+                const relatedGrid = document.getElementById('relatedProductsGrid');
+                relatedGrid.innerHTML = '';
+                
+                productData.relatedProducts.forEach(product => {
+                    const productCard = document.createElement('article');
+                    productCard.className = 'product-card';
+                    
+                    productCard.innerHTML = `
+                        <div class="product-card-image">
+                            <img src="${product.image}" 
+                                 alt="${product.alt}" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-card-content">
+                            <h3 class="product-card-title">${product.name}</h3>
+                            <div class="product-card-price">$${product.price.toFixed(2)}</div>
+                            <a href="#" class="product-card-btn">View Details</a>
+                        </div>
+                    `;
+                    
+                    relatedGrid.appendChild(productCard);
+                });
+            }
+        }
+
+        // ============================================
+        // UPDATED DARAZ-STYLE ZOOM FUNCTIONALITY
+        // ============================================
+        class DarazStyleZoom {
+            constructor() {
+                this.mainImage = document.getElementById('mainImage');
+                this.mainContainer = document.getElementById('mainImageContainer');
+                this.zoomLens = document.getElementById('zoomLens');
+                this.zoomWindow = document.getElementById('zoomWindow');
+                this.zoomedImage = document.getElementById('zoomedImage');
+                this.thumbImages = document.querySelectorAll('.thumb-image');
+                
+                this.isZooming = false;
+                this.zoomLevel = 2.5;
+                this.currentZoomUrl = '';
+                
+                this.init();
+            }
+            
+            init() {
+                this.setupZoomElements();
+                this.setupThumbnailHandlers();
+                this.setupEventListeners();
+                
+                // Load initial zoom image from first thumbnail
+                const activeThumb = document.querySelector('.thumb-image.active');
+                if (activeThumb) {
+                    this.currentZoomUrl = activeThumb.getAttribute('data-zoom');
+                    this.zoomedImage.src = this.currentZoomUrl;
+                }
+            }
+            
+            setupZoomElements() {
+                // Set lens size (20% of container)
+                const containerWidth = this.mainContainer.offsetWidth;
+                const containerHeight = this.mainContainer.offsetHeight;
+                
+                this.zoomLens.style.width = `${containerWidth * 0.2}px`;
+                this.zoomLens.style.height = `${containerHeight * 0.2}px`;
+                
+                // Position zoom window to the right of the main image container
+                this.positionZoomWindow();
+            }
+            
+            positionZoomWindow() {
+                if (window.innerWidth >= 1200) {
+                    const containerRect = this.mainContainer.getBoundingClientRect();
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+                    
+                    // Position zoom window to the right of the main image
+                    const zoomWindowWidth = 400;
+                    const zoomWindowHeight = 400;
+                    
+                    // Calculate position
+                    let left = containerRect.left + containerRect.width - 280;
+                    let top = containerRect.top;
+                    
+                    // Ensure zoom window stays within viewport
+                    const viewportWidth = window.innerWidth;
+                    if (left + zoomWindowWidth > viewportWidth) {
+                        left = containerRect.left - zoomWindowWidth - 20;
+                    }
+                    
+                    // Apply position
+                    this.zoomWindow.style.position = 'absolute';
+                    this.zoomWindow.style.top = `${top}px`;
+                    this.zoomWindow.style.left = `${left}px`;
+                    this.zoomWindow.style.width = `${zoomWindowWidth}px`;
+                    this.zoomWindow.style.height = `${zoomWindowHeight}px`;
+                    this.zoomWindow.style.zIndex = '1000';
+                } else {
+                    // Hide zoom on mobile/tablet
+                    this.zoomWindow.style.display = 'none';
+                }
+            }
+            
+            setupEventListeners() {
+                // Mouse events for desktop
+                this.mainContainer.addEventListener('mouseenter', (e) => {
+                    if (window.innerWidth >= 1200) {
+                        this.showZoom(e);
+                    }
+                });
+                
+                this.mainContainer.addEventListener('mouseleave', () => {
+                    this.hideZoom();
+                });
+                
+                this.mainContainer.addEventListener('mousemove', (e) => {
+                    if (window.innerWidth >= 1200 && this.isZooming) {
+                        this.moveZoom(e);
+                    }
+                });
+                
+                // Touch events for mobile/tablet
+                this.mainContainer.addEventListener('touchstart', (e) => {
+                    if (window.innerWidth < 1200) {
+                        e.preventDefault();
+                        this.showZoom(e);
+                        const touch = e.touches[0];
+                        const moveEvent = {
+                            clientX: touch.clientX,
+                            clientY: touch.clientY
+                        };
+                        this.moveZoom(moveEvent);
+                    }
+                });
+                
+                this.mainContainer.addEventListener('touchmove', (e) => {
+                    if (window.innerWidth < 1200 && this.isZooming) {
+                        e.preventDefault();
+                        const touch = e.touches[0];
+                        const moveEvent = {
+                            clientX: touch.clientX,
+                            clientY: touch.clientY
+                        };
+                        this.moveZoom(moveEvent);
+                    }
+                });
+                
+                this.mainContainer.addEventListener('touchend', () => {
+                    if (window.innerWidth < 1200) {
+                        this.hideZoom();
+                    }
+                });
+                
+                // Window resize and scroll
+                window.addEventListener('resize', () => {
+                    this.updateZoomPosition();
+                });
+                
+                window.addEventListener('scroll', () => {
+                    if (window.innerWidth >= 1200 && this.isZooming) {
+                        this.positionZoomWindow();
+                    }
+                });
+            }
+            
+            setupThumbnailHandlers() {
+                // Use event delegation for dynamic thumbnails
+                document.addEventListener('click', (e) => {
+                    if (e.target.closest('.thumb-image')) {
+                        const thumb = e.target.closest('.thumb-image');
+                        
+                        // Update active thumbnail
+                        document.querySelectorAll('.thumb-image').forEach(t => t.classList.remove('active'));
+                        thumb.classList.add('active');
+                        
+                        // Update main image
+                        const imageUrl = thumb.getAttribute('data-image');
+                        const zoomUrl = thumb.getAttribute('data-zoom');
+                        const altText = thumb.getAttribute('data-alt');
+                        
+                        this.mainImage.src = imageUrl;
+                        this.mainImage.alt = altText;
+                        this.currentZoomUrl = zoomUrl;
+                        this.zoomedImage.src = zoomUrl;
+                        this.zoomedImage.alt = `${altText} - Zoomed`;
+                        
+                        // Reset zoom if active
+                        if (this.isZooming) {
+                            this.hideZoom();
+                            setTimeout(() => {
+                                const fakeEvent = {
+                                    clientX: this.mainContainer.getBoundingClientRect().left + this.mainContainer.offsetWidth / 2,
+                                    clientY: this.mainContainer.getBoundingClientRect().top + this.mainContainer.offsetHeight / 2
+                                };
+                                this.showZoom(fakeEvent);
+                            }, 100);
+                        }
+                    }
+                });
+            }
+            
+            showZoom(e) {
+                if (!this.currentZoomUrl) return;
+                
+                this.isZooming = true;
+                this.zoomLens.style.display = 'block';
+                
+                if (window.innerWidth >= 1200) {
+                    this.zoomWindow.style.display = 'block';
+                    this.positionZoomWindow();
+                    
+                    // Position lens at mouse location
+                    if (e) {
+                        this.moveZoom(e);
+                    }
+                }
+            }
+            
+            hideZoom() {
+                this.isZooming = false;
+                this.zoomLens.style.display = 'none';
+                this.zoomWindow.style.display = 'none';
+            }
+            
+            moveZoom(e) {
+                if (!this.isZooming) return;
+                
+                const containerRect = this.mainContainer.getBoundingClientRect();
+                const lensWidth = this.zoomLens.offsetWidth;
+                const lensHeight = this.zoomLens.offsetHeight;
+                
+                // Calculate cursor position relative to image container
+                let x = e.clientX - containerRect.left;
+                let y = e.clientY - containerRect.top;
+                
+                // Keep lens within image bounds
+                const lensX = Math.max(0, Math.min(x - lensWidth / 2, containerRect.width - lensWidth));
+                const lensY = Math.max(0, Math.min(y - lensHeight / 2, containerRect.height - lensHeight));
+                
+                // Position lens
+                this.zoomLens.style.left = `${lensX}px`;
+                this.zoomLens.style.top = `${lensY}px`;
+                
+                // Calculate percentage for zoomed image movement
+                const percentX = (lensX / (containerRect.width - lensWidth)) * 100;
+                const percentY = (lensY / (containerRect.height - lensHeight)) * 100;
+                
+                // Update zoomed image position
+                this.zoomedImage.style.transform = `translate(-${percentX}%, -${percentY}%) scale(${this.zoomLevel})`;
+            }
+            
+            updateZoomPosition() {
+                // Update lens size based on container
+                const containerWidth = this.mainContainer.offsetWidth;
+                const containerHeight = this.mainContainer.offsetHeight;
+                
+                this.zoomLens.style.width = `${containerWidth * 0.2}px`;
+                this.zoomLens.style.height = `${containerHeight * 0.2}px`;
+                
+                // Reposition zoom window
+                this.positionZoomWindow();
+            }
+        }
+
+        // ============================================
+        // UPDATED PRODUCT VARIANT MANAGEMENT
+        // ============================================
+        class ProductManager {
+            constructor() {
+                this.selectedVariant = productData.variants[0];
+                this.quantity = 1;
+                
+                this.init();
+            }
+            
+            init() {
+                // Data is already populated by DataPopulator, just setup event listeners
+                this.setupVariantSelection();
+                this.setupQuantityControls();
+                this.setupNegativeValuePrevention(); // Add this line
+            }
+            
+            setupVariantSelection() {
+                // Use event delegation for dynamic variant buttons
+                document.addEventListener('click', (e) => {
+                    if (e.target.closest('.option-btn')) {
+                        const button = e.target.closest('.option-btn');
+                        const variantIndex = Array.from(button.parentElement.children).indexOf(button);
+                        
+                        // Remove active class from all buttons
+                        document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+                        
+                        // Add active class to clicked button
+                        button.classList.add('active');
+                        
+                        // Update selected variant
+                        this.selectedVariant = productData.variants[variantIndex];
+                        
+                        // Update price display with animation
+                        this.animatePriceChange();
+                        
+                        // Update total price
+                        this.updateTotalPrice();
+                    }
+                });
+            }
+            
+            setupQuantityControls() {
+                const decreaseBtn = document.getElementById('decreaseQty');
+                const increaseBtn = document.getElementById('increaseQty');
+                const quantityInput = document.getElementById('quantity');
+                
+                decreaseBtn.addEventListener('click', () => {
+                    if (this.quantity > 1) {
+                        this.quantity--;
+                        quantityInput.value = this.quantity;
+                        this.updateTotalPrice();
+                    }
+                });
+                
+                increaseBtn.addEventListener('click', () => {
+                    if (this.quantity < 10) {
+                        this.quantity++;
+                        quantityInput.value = this.quantity;
+                        this.updateTotalPrice();
+                    }
+                });
+                
+                quantityInput.addEventListener('change', () => {
+                    let value = parseInt(quantityInput.value);
+                    if (isNaN(value) || value < 1) {
+                        value = 1;
+                    } else if (value > 10) {
+                        value = 10;
+                    }
+                    this.quantity = value;
+                    quantityInput.value = value;
+                    this.updateTotalPrice();
+                });
+            }
+            
+            // NEW FUNCTION: Prevent negative values in quantity input
+            setupNegativeValuePrevention() {
+                const quantityInput = document.getElementById('quantity');
+                
+                // Prevent typing minus sign
+                quantityInput.addEventListener('keydown', (e) => {
+                    if (e.key === '-' || e.key === 'Subtract' || e.key === 'E' || e.key === 'e') {
+                        e.preventDefault();
+                    }
+                });
+                
+                // Prevent pasting negative values
+                quantityInput.addEventListener('paste', (e) => {
+                    const pastedText = (e.clipboardData || window.clipboardData).getData('text');
+                    if (pastedText.includes('-')) {
+                        e.preventDefault();
+                    }
+                });
+                
+                // Validate on input
+                quantityInput.addEventListener('input', (e) => {
+                    let value = e.target.value;
+                    
+                    // Remove any minus signs
+                    value = value.replace(/-/g, '');
+                    
+                    // Remove any non-numeric characters except numbers
+                    value = value.replace(/[^0-9]/g, '');
+                    
+                    // Ensure it's not empty and not starting with 0
+                    if (value === '' || value === '0') {
+                        value = '1';
+                    }
+                    
+                    // Ensure it doesn't exceed max
+                    if (parseInt(value) > 10) {
+                        value = '10';
+                    }
+                    
+                    e.target.value = value;
+                    this.quantity = parseInt(value);
+                    this.updateTotalPrice();
+                });
+            }
+            
+            animatePriceChange() {
+                const priceElement = document.getElementById('currentPrice');
+                priceElement.style.transform = 'scale(1.08)';
+                priceElement.style.color = '#ffd700';
+                
+                setTimeout(() => {
+                    priceElement.textContent = `$${this.selectedVariant.price.toFixed(2)}`;
+                    priceElement.style.transform = 'scale(1)';
+                    priceElement.style.color = '#e0c98f';
+                }, 250);
+            }
+            
+            updateTotalPrice() {
+                const total = (this.selectedVariant.price * this.quantity).toFixed(2);
+                return total;
+            }
+            
+            getCartItem() {
+                return {
+                    productId: productData.productId,
+                    sku: this.selectedVariant.sku,
+                    name: productData.name,
+                    variant: this.selectedVariant.name,
+                    quantity: this.quantity,
+                    unitPrice: this.selectedVariant.price,
+                    totalPrice: this.selectedVariant.price * this.quantity,
+                    image: productData.images[0].thumbnail,
+                    timestamp: Date.now()
+                };
+            }
+        }
+
+        // ============================================
+        // CART MANAGEMENT (Same as before)
+        // ============================================
+        class CartManager {
+            constructor() {
+                this.cart = JSON.parse(localStorage.getItem('zebkar_cart')) || [];
+                this.init();
+            }
+            
+            init() {
+                this.setupCartButtons();
+            }
+            
+            setupCartButtons() {
+                const addToCartBtn = document.getElementById('addToCart');
+                const buyNowBtn = document.getElementById('buyNow');
+                
+                addToCartBtn.addEventListener('click', () => {
+                    this.addToCart();
+                });
+                
+                buyNowBtn.addEventListener('click', () => {
+                    this.buyNow();
+                });
+            }
+            
+            addToCart() {
+                const cartItem = productManager.getCartItem();
+                this.cart.push(cartItem);
+                localStorage.setItem('zebkar_cart', JSON.stringify(this.cart));
+                
+                this.showSuccessNotification('Added to cart successfully!');
+                this.animateAddToCartButton();
+            }
+            
+            buyNow() {
+                const cartItem = productManager.getCartItem();
+                this.cart = [cartItem];
+                localStorage.setItem('zebkar_cart', JSON.stringify(this.cart));
+                
+                this.showCheckoutModal();
+            }
+            
+            showSuccessNotification(message) {
+                const existingNotifications = document.querySelectorAll('.notification');
+                existingNotifications.forEach(notification => notification.remove());
+                
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <i class="fas fa-check-circle" style="color: #4CAF50; font-size: 1.3rem;"></i>
+                        <div>
+                            <strong style="color: #e0c98f; font-size: 0.95rem;">Success!</strong>
+                            <p style="margin-top: 3px; color: #b8b3a8; font-size: 0.85rem;">${message}</p>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.classList.add('show');
+                }, 10);
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }, 2500);
+            }
+            
+            animateAddToCartButton() {
+                const button = document.getElementById('addToCart');
+                const originalText = button.innerHTML;
+                
+                button.innerHTML = '<i class="fas fa-check"></i> ADDED!';
+                button.style.background = 'linear-gradient(135deg, #4CAF50, #2E7D32)';
+                button.style.borderColor = '#2E7D32';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '';
+                    button.style.borderColor = '';
+                }, 1500);
+            }
+            
+            showCheckoutModal() {
+                const cartItem = productManager.getCartItem();
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(15, 11, 10, 0.95);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 1000;
+                    padding: 20px;
+                `;
+                
+                modal.innerHTML = `
+                    <div style="background: rgba(26, 22, 21, 0.95); padding: 25px; border-radius: 12px; max-width: 400px; width: 100%; border: 2px solid #a58b5c;">
+                        <h2 style="color: #e0c98f; margin-bottom: 20px; text-align: center; font-size: 1.5rem;">Checkout</h2>
+                        <div style="margin-bottom: 20px;">
+                            <p style="color: #b8b3a8; margin-bottom: 6px; font-size: 0.95rem;">Item: ${cartItem.name}</p>
+                            <p style="color: #b8b3a8; margin-bottom: 6px; font-size: 0.95rem;">Variant: ${cartItem.variant}</p>
+                            <p style="color: #b8b3a8; margin-bottom: 6px; font-size: 0.95rem;">Quantity: ${cartItem.quantity}</p>
+                            <p style="color: #e0c98f; font-size: 1.6rem; margin-top: 15px; text-align: center;">Total: $${cartItem.totalPrice.toFixed(2)}</p>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <button id="confirmCheckout" style="padding: 14px; background: linear-gradient(135deg, #a58b5c, #8a754d); border: none; color: #0f0b0a; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem; font-family: 'Amiri', serif;">Proceed to Payment</button>
+                            <button id="cancelCheckout" style="padding: 14px; background: transparent; border: 2px solid #a58b5c; color: #e0c98f; border-radius: 8px; cursor: pointer; font-size: 1rem; font-family: 'Amiri', serif;">Continue Shopping</button>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                
+                document.getElementById('cancelCheckout').addEventListener('click', () => {
+                    modal.remove();
+                });
+                
+                document.getElementById('confirmCheckout').addEventListener('click', () => {
+                    alert('Redirecting to payment gateway...');
+                    modal.remove();
+                });
+                
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.remove();
+                    }
+                });
+            }
+        }
+
+        // ============================================
+        // INITIALIZE APPLICATION
+        // ============================================
+        let darazZoom;
+        let productManager;
+        let cartManager;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // First populate all data from dummy object
+            DataPopulator.populateProductData();
+            
+            // Then initialize components
+            productManager = new ProductManager();
+            cartManager = new CartManager();
+            
+            // Initialize Daraz-style zoom (now images are loaded)
+            setTimeout(() => {
+                darazZoom = new DarazStyleZoom();
+            }, 100);
+            
+            // Page load animation
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.3s ease-out';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Handle window resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                if (darazZoom) {
+                    darazZoom.updateZoomPosition();
+                }
+            }, 250);
+        });
+    </script>
+</body>
+</html>
